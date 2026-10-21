@@ -308,10 +308,20 @@ def collect(site: Path):
                     marked = set(price_amounts(line))
                     for m in re.finditer(r"(?<![\d.])(\d{3,5})(?![\d.])",
                                          line):
-                        if m.group(1) not in marked:
-                            forbidden.append(
-                                (f"price ¥{m.group(1)} in AI-facing file",
-                                 f"{rel} {tag}"))
+                        if m.group(1) in marked:
+                            continue
+                        # A number governed by a negation in its own
+                        # segment ("无 2500 档", "no 2500 tier") states
+                        # that the price does NOT exist; it is not a
+                        # price and must not be reported as one.
+                        segment = re.split(r"[/、，,;；]", line[:m.start()])[-1]
+                        if re.search(r"无|没有", segment) or \
+                                re.search(r"\b(no|not|without)\b",
+                                          segment, re.I):
+                            continue
+                        forbidden.append(
+                            (f"price ¥{m.group(1)} in AI-facing file",
+                             f"{rel} {tag}"))
         elif path.suffix.lower() == ".json" and "ai" in path.parts:
             try:
                 data = json.loads(path.read_text(encoding="utf-8", errors="ignore"))

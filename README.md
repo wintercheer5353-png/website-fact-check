@@ -51,11 +51,12 @@ contains a phone drift, a price drift, prices leaked into `llms.txt` and
 [FORBIDDEN] price ¥999 in AI-facing file  <- .well-known/ai.txt (ai.txt)
 [FORBIDDEN] price ¥1300 in AI-facing file  <- .well-known/ai.txt (ai.txt)
 [FORBIDDEN] price ¥2300 in AI-facing file  <- .well-known/ai.txt (ai.txt)
+[FORBIDDEN] price ¥3800 in AI-facing file  <- .well-known/ai.txt (ai.txt)
 [FORBIDDEN] invalid JSON-LD block (unparseable)  <- broken.html
 [FORBIDDEN] price ¥1500 in AI-facing file  <- llms.txt (llms.txt)
 [FORBIDDEN] price ¥1300 in AI-facing file  <- llms.txt (llms.txt)
 
-2 conflicted field(s), 6 forbidden finding(s), 4 field(s) checked.
+2 conflicted field(s), 7 forbidden finding(s), 4 field(s) checked.
 ```
 
 Text output shows up to 4 sources per value (marked `(+N more)`);
@@ -96,7 +97,9 @@ reported as `FORBIDDEN`, not as a consistency candidate: those surfaces
 are exactly where a stale price does the most damage, because AI
 assistants quote them verbatim. Bare numbers on a line that is clearly
 about prices (`价格…`, `price: …`) count too — a price list without
-currency symbols is still a price list. Unparseable JSON-LD blocks are
+currency symbols is still a price list. A number governed by a negation
+in its own segment (`无 2500 档`, "no 2500 tier") states that the price
+does **not** exist and is not reported. Unparseable JSON-LD blocks are
 reported as findings too, never silently skipped.
 
 **Scope:** the model is one value per fact. A page that legitimately

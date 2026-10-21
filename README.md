@@ -69,7 +69,7 @@ Text output shows up to 4 sources per value (marked `(+N more)`);
 |---|---|
 | name | business entity's JSON-LD `name`, `ai/*.json` root object |
 | phone | JSON-LD `telephone`, phone patterns in page text and `llms.txt`, `ai/*.json` (root fields, nested fields and free-text answers) |
-| address | JSON-LD `address`, `ai/*.json` root object — postal parts only (street/locality/region/postal code); landmark and directions are ignored |
+| address | JSON-LD `address`, `ai/*.json` root object — postal parts only (street/locality/region/postal code); landmark and directions are ignored, and country is excluded (one copy stating it and another omitting it is not a contradiction) |
 | openingHours | JSON-LD `openingHours` and `openingHoursSpecification` |
 | price | JSON-LD `priceRange`, currency amounts in page text |
 | url | business entity's JSON-LD `url`, `ai/*.json` root object |

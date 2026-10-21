@@ -60,14 +60,15 @@ def norm_name(raw: str) -> str:
 
 
 ADDR_PART_KEYS = ("streetaddress", "street", "addresslocality", "locality",
-                  "addressregion", "region", "postalcode",
-                  "addresscountry", "country")
+                  "addressregion", "region", "postalcode")
 
 
 def core_address(addr: dict) -> str:
     """The comparable core of an address object: postal parts only, in a
     fixed field order. Auxiliary keys — landmark, directions, notes —
-    are how-to-find-us prose, not address facts, and never take part."""
+    are how-to-find-us prose, not address facts, and never take part.
+    Country is excluded on purpose: surfaces routinely state it on one
+    copy and omit it on another, and an omission is not a contradiction."""
     lower = {str(k).lower(): v for k, v in addr.items()}
     parts = []
     for key in ADDR_PART_KEYS:

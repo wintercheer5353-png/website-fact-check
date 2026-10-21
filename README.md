@@ -97,10 +97,11 @@ reported as `FORBIDDEN`, not as a consistency candidate: those surfaces
 are exactly where a stale price does the most damage, because AI
 assistants quote them verbatim. Bare numbers on a line that is clearly
 about prices (`价格…`, `price: …`) count too — a price list without
-currency symbols is still a price list. A number governed by a negation
-in its own segment (`无 2500 档`, "no 2500 tier") states that the price
-does **not** exist and is not reported. Unparseable JSON-LD blocks are
-reported as findings too, never silently skipped.
+currency symbols is still a price list. A price mention with a negation
+immediately before it (`无 ¥2500 档`, `不设 2500 档`, "no 2500元 tier")
+states that the price does **not** exist and is not reported; a negation
+further away does not exempt a real price. Unparseable JSON-LD blocks
+are reported as findings too, never silently skipped.
 
 **Scope:** the model is one value per fact. A page that legitimately
 publishes several different prices (a per-service price list) will see

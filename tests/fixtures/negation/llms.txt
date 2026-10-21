@@ -1,0 +1,3 @@
+# Example Studio
+价格：无 ¥2500 档；no 2500元 tier；不设 2500 档。
+price: no appointment needed, signature service 1300.

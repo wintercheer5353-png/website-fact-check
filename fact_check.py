@@ -28,6 +28,16 @@ PRICE_RE = re.compile(r"(?:¥|￥|CNY\s?|RMB\s?)(\d[\d,]*(?:\.\d+)?)"
 
 
 PRICE_CONTEXT_RE = re.compile(r"价格|价目|收费|定价|price|cost", re.I)
+NEGATION_RE = re.compile(r"无|没有|不含|不设|不提供|\b(no|not|without)\b",
+                         re.I)
+
+
+def is_negated(text, start):
+    """A price mention is negated when a negation word sits immediately
+    before it (12-character window): '无 2500 档', 'no ¥2500 tier' state
+    that the price does NOT exist. A negation further away — 'no
+    appointment needed, service 1300' — does not govern the number."""
+    return bool(NEGATION_RE.search(text[max(0, start - 12):start]))
 
 
 def price_amounts(text):
@@ -295,29 +305,27 @@ def collect(site: Path):
                          f"{rel} {tag}")
             # Policy check, not consistency: AI-facing files must not
             # carry prices at all, so any amount here is a violation,
-            # regardless of whether pages agree with it.
-            for n in price_amounts(text):
+            # regardless of whether pages agree with it. Negated
+            # mentions ("无 ¥2500 档", "no 2500元 tier") are exempt:
+            # they state that the price does not exist.
+            for m in PRICE_RE.finditer(text):
+                if is_negated(text, m.start()):
+                    continue
+                n = (m.group(1) or m.group(2)).replace(",", "")
                 forbidden.append((f"price ¥{n} in AI-facing file",
                                   f"{rel} {tag}"))
             # A price list in these files is often bare numbers under a
             # 价格/price heading, with no currency marker at all. On a
             # line that is clearly about prices, 3–5 digit bare numbers
-            # are prices too.
+            # are prices too (same negation exemption).
             for line in text.splitlines():
                 if PRICE_CONTEXT_RE.search(line):
                     marked = set(price_amounts(line))
-                    for m in re.finditer(r"(?<![\d.])(\d{3,5})(?![\d.])",
+                    for m in re.finditer(r"(?<![\d.])(\d{3,5})(?!\d)(?!\.\d)",
                                          line):
                         if m.group(1) in marked:
                             continue
-                        # A number governed by a negation in its own
-                        # segment ("无 2500 档", "no 2500 tier") states
-                        # that the price does NOT exist; it is not a
-                        # price and must not be reported as one.
-                        segment = re.split(r"[/、，,;；]", line[:m.start()])[-1]
-                        if re.search(r"无|没有", segment) or \
-                                re.search(r"\b(no|not|without)\b",
-                                          segment, re.I):
+                        if is_negated(line, m.start()):
                             continue
                         forbidden.append(
                             (f"price ¥{m.group(1)} in AI-facing file",

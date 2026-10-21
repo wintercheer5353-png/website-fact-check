@@ -78,6 +78,20 @@ def test_negated_price_is_not_a_price():
     assert not any("2500" in d for d, _ in forbidden)  # （无 2500 档）
 
 
+def test_negation_covers_marked_amounts_and_full_wordlist():
+    _, forbidden = collect(HERE / "fixtures" / "negation")
+    # 无 ¥2500 (marked), no 2500元 (marked), 不设 2500 (bare): all exempt
+    assert not any("2500" in d for d, _ in forbidden)
+
+
+def test_distant_negation_does_not_suppress_a_real_price():
+    _, forbidden = collect(HERE / "fixtures" / "negation")
+    # "no appointment needed, signature service 1300": the "no" is not
+    # adjacent to 1300, so the real price is still reported.
+    assert any("1300" in d for d, _ in forbidden)
+    assert len(forbidden) == 1
+
+
 def test_address_spellings_of_same_address_do_not_conflict():
     facts, _ = collect(HERE / "fixtures" / "address-variants")
     assert "address" not in conflicts(facts)
@@ -110,6 +124,8 @@ if __name__ == "__main__":
     test_invalid_jsonld_is_reported_not_skipped()
     test_bare_number_price_list_in_ai_txt_is_forbidden()
     test_negated_price_is_not_a_price()
+    test_negation_covers_marked_amounts_and_full_wordlist()
+    test_distant_negation_does_not_suppress_a_real_price()
     test_address_spellings_of_same_address_do_not_conflict()
     test_real_address_drift_is_still_caught()
     test_nested_and_freetext_phones_are_pooled()

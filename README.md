@@ -22,15 +22,20 @@ python3 fact_check.py path/to/site
 python3 fact_check.py path/to/site --json   # machine-readable output
 ```
 
-Exit code is `1` when conflicts are found, so it can gate a deploy or run
-in CI:
+Exit code is `1` when conflicts **or forbidden findings** are present,
+so it can gate a deploy or run in CI:
 
 ```bash
-python3 fact_check.py ./public || echo "fact conflicts need review"
+python3 fact_check.py ./public || {
+  status=$?
+  echo "fact conflicts need review"
+  exit "$status"
+}
 ```
 
 Example output (real run on the bundled test fixture, which deliberately
-contains a phone drift, a price drift, and a price leaked into `llms.txt`):
+contains a phone drift, a price drift, prices leaked into `llms.txt` and
+`.well-known/ai.txt`, and one unparseable JSON-LD block):
 
 ```
 [ok] address: 1 distinct value(s)
@@ -43,10 +48,16 @@ contains a phone drift, a price drift, and a price leaked into `llms.txt`):
 [CONFLICT] price: 2 distinct value(s)
     - '1300'  <- index.html (JSON-LD priceRange)
     - '1500'  <- index.html (page text)
+[FORBIDDEN] price ¥999 in AI-facing file  <- .well-known/ai.txt (llms.txt)
+[FORBIDDEN] invalid JSON-LD block (unparseable)  <- broken.html
 [FORBIDDEN] price ¥1500 in AI-facing file  <- llms.txt (llms.txt)
+[FORBIDDEN] price ¥1300 in AI-facing file  <- llms.txt (llms.txt)
 
-2 conflicted field(s), 1 forbidden finding(s), 4 field(s) checked.
+2 conflicted field(s), 4 forbidden finding(s), 4 field(s) checked.
 ```
+
+Text output shows up to 4 sources per value (marked `(+N more)`);
+`--json` output always carries the full source lists.
 
 ## What it checks
 
@@ -54,12 +65,21 @@ contains a phone drift, a price drift, and a price leaked into `llms.txt`):
 
 | Field | Sources |
 |---|---|
-| name | JSON-LD `name`, `ai/*.json` |
-| phone | JSON-LD `telephone`, phone patterns in page text and `llms.txt`, `ai/*.json` |
-| address | JSON-LD `address` (string or PostalAddress parts) |
+| name | business entity's JSON-LD `name`, `ai/*.json` root object |
+| phone | JSON-LD `telephone`, phone patterns in page text and `llms.txt`, `ai/*.json` root object |
+| address | JSON-LD `address` (string or PostalAddress parts), `ai/*.json` root object |
 | openingHours | JSON-LD `openingHours` |
-| price | JSON-LD `priceRange`, `¥`/`CNY` amounts in page text |
-| url | JSON-LD `url` |
+| price | JSON-LD `priceRange`, currency amounts in page text |
+| url | business entity's JSON-LD `url`, `ai/*.json` root object |
+
+Facts are scoped to the **business entity**: in JSON-LD, only nodes that
+describe the business itself (LocalBusiness, BeautySalon, Organization
+and similar types) contribute facts. Names and URLs of articles, FAQ
+questions, people, products and individual pages are different entities'
+facts and are ignored — comparing them would manufacture conflicts that
+do not exist. In `ai/*.json`, consistency facts come from the file's root
+object; nested entries are catalog items, checked for forbidden prices
+only.
 
 Values are normalized before comparison: phone numbers lose country codes
 and separators (`+86 138-0000-1111` = `13800001111`), and names are
@@ -67,13 +87,17 @@ canonicalized (whitespace collapsed, spaces around `·` removed), so
 cosmetic variants do not raise false conflicts.
 
 **Forbidden values** — some facts must not appear in AI-facing files at
-all. Any price amount found in `llms.txt` or `ai/*.json` is reported as
-`FORBIDDEN`, not as a consistency candidate: those surfaces are exactly
-where a stale price does the most damage, because AI assistants quote
-them verbatim.
+all. Any price — a `price`/`priceRange` key at any depth, or a currency
+amount (`¥1500`, `CNY 1500`, `1500元`) inside any string — found in
+`llms.txt`, `llms-full.txt`, `.well-known/ai.txt` or `ai/*.json` is
+reported as `FORBIDDEN`, not as a consistency candidate: those surfaces
+are exactly where a stale price does the most damage, because AI
+assistants quote them verbatim. Unparseable JSON-LD blocks are reported
+as findings too, never silently skipped.
 
 The tool is **read-only**: it reports and exits non-zero; it never edits
-the site.
+the site. Output is UTF-8 (the tool reconfigures stdout where the
+platform allows), so reports survive legacy Windows consoles.
 
 ## Why
 

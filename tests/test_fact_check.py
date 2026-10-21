@@ -5,6 +5,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from fact_check import collect, conflicts  # noqa: E402
 
 FIXTURE = Path(__file__).resolve().parent / "fixtures" / "site"
+HERE = Path(__file__).resolve().parent
 
 
 def test_finds_phone_conflict_between_jsonld_and_text():
@@ -31,9 +32,47 @@ def test_price_in_llms_txt_is_forbidden_not_a_fact():
     assert set(facts["price"]) == {"1300", "1500"}
 
 
+def test_ai_json_prices_in_any_shape_are_forbidden():
+    # Regression (external acceptance F1): price key, nested offers.price
+    # and a currency amount in free text must all be caught.
+    _, forbidden = collect(HERE / "fixtures" / "ai-prices")
+    assert len(forbidden) >= 3, forbidden
+
+
+def test_other_entities_names_and_urls_are_not_business_facts():
+    # Regression (external acceptance F2/F3): FAQ questions, article
+    # names and per-page URLs must not merge into the business's facts.
+    facts, _ = collect(HERE / "fixtures" / "entities")
+    assert set(facts["name"]) == {"Example Studio"}
+    assert "name" not in conflicts(facts)
+    assert "url" not in conflicts(facts)
+
+
+def test_same_entity_name_drift_is_still_caught():
+    facts, _ = collect(HERE / "fixtures" / "entities-drift")
+    assert "name" in conflicts(facts)
+
+
+def test_yuan_suffix_and_wellknown_ai_txt_are_forbidden():
+    _, forbidden = collect(FIXTURE)
+    descs = [d for d, _ in forbidden]
+    assert any("1300" in d for d in descs)  # 1300元 in llms.txt
+    assert any("999" in d for d in descs)   # 999元 in .well-known/ai.txt
+
+
+def test_invalid_jsonld_is_reported_not_skipped():
+    _, forbidden = collect(FIXTURE)
+    assert any("invalid JSON-LD" in d for d, _ in forbidden)
+
+
 if __name__ == "__main__":
     test_finds_phone_conflict_between_jsonld_and_text()
     test_finds_price_conflict()
     test_consistent_name_is_not_a_conflict()
     test_price_in_llms_txt_is_forbidden_not_a_fact()
+    test_ai_json_prices_in_any_shape_are_forbidden()
+    test_other_entities_names_and_urls_are_not_business_facts()
+    test_same_entity_name_drift_is_still_caught()
+    test_yuan_suffix_and_wellknown_ai_txt_are_forbidden()
+    test_invalid_jsonld_is_reported_not_skipped()
     print("all tests passed")

@@ -27,6 +27,9 @@ PRICE_RE = re.compile(r"(?:¥|￥|CNY\s?|RMB\s?)(\d[\d,]*(?:\.\d+)?)"
                       r"|(\d[\d,]*(?:\.\d+)?)\s*元")
 
 
+PRICE_CONTEXT_RE = re.compile(r"价格|价目|收费|定价|price|cost", re.I)
+
+
 def price_amounts(text):
     """All currency amounts in a string, normalized (no thousands
     separators). Matches ¥1500, CNY 1500 and the suffix form 1500元."""
@@ -54,6 +57,46 @@ def norm_name(raw: str) -> str:
     v = re.sub(r"\s+", " ", raw).strip()
     v = re.sub(r"\s*·\s*", "·", v)
     return v
+
+
+ADDR_PART_KEYS = ("streetaddress", "street", "addresslocality", "locality",
+                  "addressregion", "region", "postalcode",
+                  "addresscountry", "country")
+
+
+def core_address(addr: dict) -> str:
+    """The comparable core of an address object: postal parts only, in a
+    fixed field order. Auxiliary keys — landmark, directions, notes —
+    are how-to-find-us prose, not address facts, and never take part."""
+    lower = {str(k).lower(): v for k, v in addr.items()}
+    parts = []
+    for key in ADDR_PART_KEYS:
+        v = lower.get(key)
+        if isinstance(v, str) and v.strip() and v.strip() not in parts:
+            parts.append(v.strip())
+    return " ".join(parts)
+
+
+def norm_address(raw: str) -> str:
+    """Canonical form for comparison: collapse whitespace and drop a
+    space sitting between two CJK characters ('上海市 浦东新区' and
+    '上海市浦东新区' are the same address). Spaces in Latin-script
+    addresses are significant and are kept."""
+    v = re.sub(r"\s+", " ", raw).strip()
+    return re.sub(r"(?<=[\u4e00-\u9fff])\s+(?=[\u4e00-\u9fff])", "", v)
+
+
+DAY_CODES = {"monday": "Mo", "tuesday": "Tu", "wednesday": "We",
+             "thursday": "Th", "friday": "Fr", "saturday": "Sa",
+             "sunday": "Su"}
+DAY_ORDER = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
+
+
+def norm_hours(raw: str) -> str:
+    """Canonical form: drop parenthetical annotations such as
+    '（预约制）' / '(by appointment)' and collapse whitespace."""
+    v = re.sub(r"[（(][^）)]*[）)]", "", raw)
+    return re.sub(r"\s+", " ", v).strip()
 
 
 class PageParser(HTMLParser):
@@ -130,10 +173,7 @@ def walk_jsonld(node, out, _root=True):
                     out.setdefault(key, set()).add(node[key].strip())
             addr = node.get("address")
             if isinstance(addr, dict):
-                parts = [addr.get(k, "") for k in
-                         ("streetAddress", "addressLocality",
-                          "addressRegion", "postalCode")]
-                joined = " ".join(p for p in parts if p).strip()
+                joined = core_address(addr)
                 if joined:
                     out.setdefault("address", set()).add(joined)
             elif isinstance(addr, str):
@@ -145,6 +185,26 @@ def walk_jsonld(node, out, _root=True):
                 for h in hours:
                     if isinstance(h, str):
                         out.setdefault("openingHours", set()).add(h.strip())
+            spec = node.get("openingHoursSpecification")
+            if spec:
+                for item in (spec if isinstance(spec, list) else [spec]):
+                    if not isinstance(item, dict):
+                        continue
+                    days = item.get("dayOfWeek") or []
+                    if isinstance(days, str):
+                        days = [days]
+                    codes = [DAY_CODES.get(str(d).rsplit("/", 1)[-1]
+                                           .strip().lower(), "")
+                             for d in days]
+                    opens, closes = item.get("opens"), item.get("closes")
+                    if codes and all(codes) and opens and closes:
+                        if len(set(codes)) == 7:
+                            span = "Mo-Su"
+                        else:
+                            span = ",".join(sorted(set(codes),
+                                                   key=DAY_ORDER.index))
+                        out.setdefault("openingHours", set()).add(
+                            f"{span} {opens}-{closes}")
         for value in node.values():
             if isinstance(value, (dict, list)):
                 walk_jsonld(value, out, _root=False)
@@ -153,17 +213,20 @@ def walk_jsonld(node, out, _root=True):
 PRICE_KEYS = ("price", "pricerange", "lowprice", "highprice")
 
 
-def scan_ai_json(node, source, forbidden, _key=""):
-    """Forbidden-price scan for AI-facing JSON, at any depth: a dedicated
-    price key (price, offers.price, priceRange, ...) with a numeric or
-    string value, or a currency amount inside any free-text string.
-    Findings keep the JSON key so the value can be located."""
+def scan_ai_json(node, source, forbidden, facts=None, _key=""):
+    """Deep scan of AI-facing JSON. Forbidden prices at any depth: a
+    dedicated price key (price, offers.price, priceRange, ...) with a
+    numeric or string value, or a currency amount inside any free-text
+    string; findings keep the JSON key so the value can be located.
+    Phone numbers are consistency facts wherever they appear in these
+    files — a root field, a nested booking.telephone, or a phone number
+    inside an FAQ answer string are all copies of the same fact."""
     if isinstance(node, dict):
         for key, value in node.items():
-            scan_ai_json(value, source, forbidden, key)
+            scan_ai_json(value, source, forbidden, facts, key)
     elif isinstance(node, list):
         for item in node:
-            scan_ai_json(item, source, forbidden, _key)
+            scan_ai_json(item, source, forbidden, facts, _key)
     elif isinstance(node, bool):
         return
     elif isinstance(node, (int, float)):
@@ -177,6 +240,11 @@ def scan_ai_json(node, source, forbidden, _key=""):
         else:
             for n in price_amounts(node):
                 forbidden.append((f"price ¥{n} in AI-facing file", source))
+        if facts is not None:
+            if _key.lower() == "telephone":
+                add_fact(facts, "phone", norm_phone(node), source)
+            for m in PHONE_RE.finditer(node):
+                add_fact(facts, "phone", norm_phone(m.group(1)), source)
 
 
 def add_fact(facts, field, value, source):
@@ -191,7 +259,7 @@ def collect(site: Path):
     for path in sorted(site.rglob("*")):
         if path.is_dir() or ".git" in path.parts:
             continue
-        rel = str(path.relative_to(site))
+        rel = path.relative_to(site).as_posix()
         if path.suffix.lower() in (".html", ".htm"):
             parser = PageParser()
             parser.feed(path.read_text(encoding="utf-8", errors="ignore"))
@@ -218,15 +286,31 @@ def collect(site: Path):
             for n in price_amounts(parser.visible_text):
                 add_fact(facts, "price", n, f"{rel} (page text)")
         elif path.name.lower() in ("llms.txt", "llms-full.txt", "ai.txt"):
+            tag = "(llms.txt)" if path.name.lower().startswith("llms") \
+                else "(ai.txt)"
             text = path.read_text(encoding="utf-8", errors="ignore")
             for m in PHONE_RE.finditer(text):
-                add_fact(facts, "phone", norm_phone(m.group(1)), f"{rel} (llms.txt)")
+                add_fact(facts, "phone", norm_phone(m.group(1)),
+                         f"{rel} {tag}")
             # Policy check, not consistency: AI-facing files must not
             # carry prices at all, so any amount here is a violation,
             # regardless of whether pages agree with it.
             for n in price_amounts(text):
                 forbidden.append((f"price ¥{n} in AI-facing file",
-                                  f"{rel} (llms.txt)"))
+                                  f"{rel} {tag}"))
+            # A price list in these files is often bare numbers under a
+            # 价格/price heading, with no currency marker at all. On a
+            # line that is clearly about prices, 3–5 digit bare numbers
+            # are prices too.
+            for line in text.splitlines():
+                if PRICE_CONTEXT_RE.search(line):
+                    marked = set(price_amounts(line))
+                    for m in re.finditer(r"(?<![\d.])(\d{3,5})(?![\d.])",
+                                         line):
+                        if m.group(1) not in marked:
+                            forbidden.append(
+                                (f"price ¥{m.group(1)} in AI-facing file",
+                                 f"{rel} {tag}"))
         elif path.suffix.lower() == ".json" and "ai" in path.parts:
             try:
                 data = json.loads(path.read_text(encoding="utf-8", errors="ignore"))
@@ -252,18 +336,21 @@ def collect(site: Path):
                 if isinstance(addr, str):
                     add_fact(facts, "address", addr, f"{rel} (ai json)")
                 elif isinstance(addr, dict):
-                    joined = " ".join(str(x) for x in addr.values()
-                                      if isinstance(x, str)).strip()
+                    joined = core_address(addr)
                     if joined:
                         add_fact(facts, "address", joined, f"{rel} (ai json)")
-            # Forbidden prices are scanned at any depth, in any shape.
-            scan_ai_json(data, f"{rel} (ai json)", forbidden)
-    # Canonicalize names collected from every surface.
-    if "name" in facts:
-        merged = {}
-        for value, sources in facts["name"].items():
-            merged.setdefault(norm_name(value), []).extend(sources)
-        facts["name"] = merged
+            # Deep scan: forbidden prices at any depth, and every phone
+            # copy (nested fields and free-text answers included).
+            scan_ai_json(data, f"{rel} (ai json)", forbidden, facts)
+    # Canonicalize values collected from every surface, so that merely
+    # typographic differences never masquerade as fact conflicts.
+    for field, norm in (("name", norm_name), ("address", norm_address),
+                        ("openingHours", norm_hours)):
+        if field in facts:
+            merged = {}
+            for value, sources in facts[field].items():
+                merged.setdefault(norm(value), []).extend(sources)
+            facts[field] = merged
     return facts, list(dict.fromkeys(forbidden))
 
 

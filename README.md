@@ -48,12 +48,14 @@ contains a phone drift, a price drift, prices leaked into `llms.txt` and
 [CONFLICT] price: 2 distinct value(s)
     - '1300'  <- index.html (JSON-LD priceRange)
     - '1500'  <- index.html (page text)
-[FORBIDDEN] price ¥999 in AI-facing file  <- .well-known/ai.txt (llms.txt)
+[FORBIDDEN] price ¥999 in AI-facing file  <- .well-known/ai.txt (ai.txt)
+[FORBIDDEN] price ¥1300 in AI-facing file  <- .well-known/ai.txt (ai.txt)
+[FORBIDDEN] price ¥2300 in AI-facing file  <- .well-known/ai.txt (ai.txt)
 [FORBIDDEN] invalid JSON-LD block (unparseable)  <- broken.html
 [FORBIDDEN] price ¥1500 in AI-facing file  <- llms.txt (llms.txt)
 [FORBIDDEN] price ¥1300 in AI-facing file  <- llms.txt (llms.txt)
 
-2 conflicted field(s), 4 forbidden finding(s), 4 field(s) checked.
+2 conflicted field(s), 6 forbidden finding(s), 4 field(s) checked.
 ```
 
 Text output shows up to 4 sources per value (marked `(+N more)`);
@@ -66,9 +68,9 @@ Text output shows up to 4 sources per value (marked `(+N more)`);
 | Field | Sources |
 |---|---|
 | name | business entity's JSON-LD `name`, `ai/*.json` root object |
-| phone | JSON-LD `telephone`, phone patterns in page text and `llms.txt`, `ai/*.json` root object |
-| address | JSON-LD `address` (string or PostalAddress parts), `ai/*.json` root object |
-| openingHours | JSON-LD `openingHours` |
+| phone | JSON-LD `telephone`, phone patterns in page text and `llms.txt`, `ai/*.json` (root fields, nested fields and free-text answers) |
+| address | JSON-LD `address`, `ai/*.json` root object — postal parts only (street/locality/region/postal code); landmark and directions are ignored |
+| openingHours | JSON-LD `openingHours` and `openingHoursSpecification` |
 | price | JSON-LD `priceRange`, currency amounts in page text |
 | url | business entity's JSON-LD `url`, `ai/*.json` root object |
 
@@ -92,8 +94,16 @@ amount (`¥1500`, `CNY 1500`, `1500元`) inside any string — found in
 `llms.txt`, `llms-full.txt`, `.well-known/ai.txt` or `ai/*.json` is
 reported as `FORBIDDEN`, not as a consistency candidate: those surfaces
 are exactly where a stale price does the most damage, because AI
-assistants quote them verbatim. Unparseable JSON-LD blocks are reported
-as findings too, never silently skipped.
+assistants quote them verbatim. Bare numbers on a line that is clearly
+about prices (`价格…`, `price: …`) count too — a price list without
+currency symbols is still a price list. Unparseable JSON-LD blocks are
+reported as findings too, never silently skipped.
+
+**Scope:** the model is one value per fact. A page that legitimately
+publishes several different prices (a per-service price list) will see
+them reported as differing values of the single `price` fact; the tool
+is built for businesses that publish one price per fact, and for
+keeping prices out of AI-facing files entirely.
 
 The tool is **read-only**: it reports and exits non-zero; it never edits
 the site. Output is UTF-8 (the tool reconfigures stdout where the

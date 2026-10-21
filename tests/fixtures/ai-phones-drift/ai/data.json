@@ -1,0 +1,3 @@
+{"name": "Example Studio",
+ "booking": {"telephone": "13900002222"},
+ "faq": [{"question": "How to book?", "answer": "Call 13800001111 to book."}]}

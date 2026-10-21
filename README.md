@@ -29,17 +29,23 @@ in CI:
 python3 fact_check.py ./public || echo "fact conflicts need review"
 ```
 
-Example output:
+Example output (real run on the bundled test fixture, which deliberately
+contains a phone drift, a price drift, and a price leaked into `llms.txt`):
 
 ```
+[ok] address: 1 distinct value(s)
+    - '1 Demo Road Shanghai'  <- index.html (JSON-LD)
+[ok] name: 1 distinct value(s)
+    - 'Example Studio'  <- index.html (JSON-LD)
 [CONFLICT] phone: 2 distinct value(s)
     - '13800001111'  <- index.html (JSON-LD)
     - '13900002222'  <- index.html (page text)
 [CONFLICT] price: 2 distinct value(s)
     - '1300'  <- index.html (JSON-LD priceRange)
     - '1500'  <- index.html (page text)
+[FORBIDDEN] price ¥1500 in AI-facing file  <- llms.txt (llms.txt)
 
-2 conflicted field(s), 4 field(s) checked.
+2 conflicted field(s), 1 forbidden finding(s), 4 field(s) checked.
 ```
 
 ## What it checks

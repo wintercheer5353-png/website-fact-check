@@ -1,1 +1,420 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiJ3ZWJzaXRlLWZhY3QtY2hlY2s6IGZpbmQgaW5jb25zaXN0ZW50IGJ1c2luZXNzIGZhY3RzIGFjcm9zcyBhIHN0YXRpYyB3ZWJzaXRlLgoKQSBsb2NhbCBidXNpbmVzcyByZXBlYXRzIHRoZSBzYW1lIGZhY3RzIOKAlCBuYW1lLCBwaG9uZSwgYWRkcmVzcywgb3BlbmluZwpob3VycywgcHJpY2VzIOKAlCBpbiB2aXNpYmxlIGNvcHksIEpTT04tTEQgc3RydWN0dXJlZCBkYXRhLCBGQVEgcGFnZXMgYW5kCmxsbXMudHh0LiBXaGVuIG9uZSBjb3B5IGlzIGVkaXRlZCBhbmQgdGhlIG90aGVycyBhcmUgbm90LCBzZWFyY2ggZW5naW5lcwphbmQgQUkgYXNzaXN0YW50cyBwaWNrIHVwIGNvbmZsaWN0aW5nIGZhY3RzLiBUaGlzIHRvb2wgc2NhbnMgYSBzdGF0aWMgc2l0ZQpkaXJlY3RvcnksIGV4dHJhY3RzIHRoZSBmYWN0cyBpdCBjYW4gZmluZCBkZXRlcm1pbmlzdGljYWxseSAobm8gbW9kZWwKY2FsbHMpLCBhbmQgcmVwb3J0cyBldmVyeSBmaWVsZCB0aGF0IGhhcyBtb3JlIHRoYW4gb25lIGRpc3RpbmN0IHZhbHVlLAp3aXRoIHRoZSBmaWxlIGFuZCBzb3VyY2Ugb2YgZWFjaCB2YWx1ZS4KClVzYWdlOgogICAgcHl0aG9uMyBmYWN0X2NoZWNrLnB5IDxzaXRlLWRpcj4gWy0tanNvbl0KCkV4aXQgY29kZTogMCA9IG5vIGNvbmZsaWN0cywgMSA9IGNvbmZsaWN0cyBmb3VuZCwgMiA9IHVzYWdlIGVycm9yLgpTdGFuZGFyZCBsaWJyYXJ5IG9ubHkuCiIiIgoKaW1wb3J0IGpzb24KaW1wb3J0IHJlCmltcG9ydCBzeXMKZnJvbSBodG1sLnBhcnNlciBpbXBvcnQgSFRNTFBhcnNlcgpmcm9tIHBhdGhsaWIgaW1wb3J0IFBhdGgKClBIT05FX1JFID0gcmUuY29tcGlsZShyIig/PCFcZCkoPzpcKz84NlstXHNdPyk/KDFcZHsyfVstXHNdP1xkezR9Wy1cc10/XGR7NH0pKD8hXGQpIikKUFJJQ0VfUkUgPSByZS5jb21waWxlKHIiKD86wqV877+lfENOWVxzP3xSTUJccz8pKFxkW1xkLF0qKD86XC5cZCspPykiCiAgICAgICAgICAgICAgICAgICAgICByInwoXGRbXGQsXSooPzpcLlxkKyk/KVxzKuWFgyIpCgoKUFJJQ0VfQ09OVEVYVF9SRSA9IHJlLmNvbXBpbGUociLku7fmoLx85Lu355uufOaUtui0uXzlrprku7d8cHJpY2V8Y29zdCIsIHJlLkkpCk5FR0FUSU9OX1RBSUxfUkUgPSByZS5jb21waWxlKAogICAgciIoPzrml6B85rKh5pyJfOS4jeWQq3zkuI3orr585LiN5o+Q5L6bfFxibm9cYnxcYm5vdFxifFxid2l0aG91dFxiKVxzKiQiLCByZS5JKQoKCmRlZiBpc19uZWdhdGVkKHRleHQsIHN0YXJ0KToKICAgICIiIkEgcHJpY2UgbWVudGlvbiBpcyBuZWdhdGVkIG9ubHkgd2hlbiBhIG5lZ2F0aW9uIHdvcmQgc2l0cwogICAgaW1tZWRpYXRlbHkgYmVmb3JlIHRoZSBhbW91bnQsIHdpdGggbm90aGluZyBidXQgd2hpdGVzcGFjZSBpbgogICAgYmV0d2VlbjogJ+aXoCDCpTI1MDAg5qGjJywgJ25vIDI1MDAgdGllcicgc3RhdGUgdGhhdCB0aGUgcHJpY2UgZG9lcwogICAgTk9UIGV4aXN0LiBBIG5lZ2F0aW9uIHRoYXQgZ292ZXJucyBzb21ldGhpbmcgZWxzZSBpbiB0aGUgc2FtZQogICAgc2VudGVuY2Ug4oCUICdubyBmZWUsIDEzMDAnLCAn5peg6aKE57qm6LS577yMMTMwMOWFgycg4oCUIGRvZXMgbm90IGV4ZW1wdAogICAgdGhlIHByaWNlIHRoYXQgZm9sbG93cyBpdC4iIiIKICAgIHJldHVybiBib29sKE5FR0FUSU9OX1RBSUxfUkUuc2VhcmNoKHRleHRbOnN0YXJ0XSkpCgoKZGVmIHByaWNlX2Ftb3VudHModGV4dCk6CiAgICAiIiJBbGwgY3VycmVuY3kgYW1vdW50cyBpbiBhIHN0cmluZywgbm9ybWFsaXplZCAobm8gdGhvdXNhbmRzCiAgICBzZXBhcmF0b3JzKS4gTWF0Y2hlcyDCpTE1MDAsIENOWSAxNTAwIGFuZCB0aGUgc3VmZml4IGZvcm0gMTUwMOWFgy4iIiIKICAgIG91dCA9IFtdCiAgICBmb3IgbSBpbiBQUklDRV9SRS5maW5kaXRlcih0ZXh0KToKICAgICAgICBvdXQuYXBwZW5kKChtLmdyb3VwKDEpIG9yIG0uZ3JvdXAoMikpLnJlcGxhY2UoIiwiLCAiIikpCiAgICByZXR1cm4gb3V0CgoKZGVmIG5vcm1fcGhvbmUocmF3OiBzdHIpIC0+IHN0cjoKICAgIGRpZ2l0cyA9IHJlLnN1YihyIlxEIiwgIiIsIHJhdykKICAgIGlmIGRpZ2l0cy5zdGFydHN3aXRoKCI4NiIpIGFuZCBsZW4oZGlnaXRzKSA9PSAxMzoKICAgICAgICBkaWdpdHMgPSBkaWdpdHNbMjpdCiAgICByZXR1cm4gZGlnaXRzCgoKZGVmIG5vcm1fdGV4dChyYXc6IHN0cikgLT4gc3RyOgogICAgcmV0dXJuIHJlLnN1YihyIlxzKyIsICIgIiwgcmF3KS5zdHJpcCgpLmxvd2VyKCkKCgpkZWYgbm9ybV9uYW1lKHJhdzogc3RyKSAtPiBzdHI6CiAgICAiIiJDYW5vbmljYWwgZm9ybSBmb3IgbmFtZXM6IGNvbGxhcHNlIHdoaXRlc3BhY2UgYW5kIGRyb3Agc3BhY2VzCiAgICBhcm91bmQgYSBtaWRkbGUgZG90LCBzbyAnQnJhbmQgwrcgU3R1ZGlvJyBhbmQgJ0JyYW5kwrdTdHVkaW8nIGNvdW50CiAgICBhcyB0aGUgc2FtZSBmYWN0IGluc3RlYWQgb2YgYSBmYWxzZSBjb25mbGljdC4iIiIKICAgIHYgPSByZS5zdWIociJccysiLCAiICIsIHJhdykuc3RyaXAoKQogICAgdiA9IHJlLnN1YihyIlxzKsK3XHMqIiwgIsK3IiwgdikKICAgIHJldHVybiB2CgoKQUREUl9QQVJUX0tFWVMgPSAoInN0cmVldGFkZHJlc3MiLCAic3RyZWV0IiwgImFkZHJlc3Nsb2NhbGl0eSIsICJsb2NhbGl0eSIsCiAgICAgICAgICAgICAgICAgICJhZGRyZXNzcmVnaW9uIiwgInJlZ2lvbiIsICJwb3N0YWxjb2RlIikKCgpkZWYgY29yZV9hZGRyZXNzKGFkZHI6IGRpY3QpIC0+IHN0cjoKICAgICIiIlRoZSBjb21wYXJhYmxlIGNvcmUgb2YgYW4gYWRkcmVzcyBvYmplY3Q6IHBvc3RhbCBwYXJ0cyBvbmx5LCBpbiBhCiAgICBmaXhlZCBmaWVsZCBvcmRlci4gQXV4aWxpYXJ5IGtleXMg4oCUIGxhbmRtYXJrLCBkaXJlY3Rpb25zLCBub3RlcyDigJQKICAgIGFyZSBob3ctdG8tZmluZC11cyBwcm9zZSwgbm90IGFkZHJlc3MgZmFjdHMsIGFuZCBuZXZlciB0YWtlIHBhcnQuCiAgICBDb3VudHJ5IGlzIGV4Y2x1ZGVkIG9uIHB1cnBvc2U6IHN1cmZhY2VzIHJvdXRpbmVseSBzdGF0ZSBpdCBvbiBvbmUKICAgIGNvcHkgYW5kIG9taXQgaXQgb24gYW5vdGhlciwgYW5kIGFuIG9taXNzaW9uIGlzIG5vdCBhIGNvbnRyYWRpY3Rpb24uIiIiCiAgICBsb3dlciA9IHtzdHIoaykubG93ZXIoKTogdiBmb3IgaywgdiBpbiBhZGRyLml0ZW1zKCl9CiAgICBwYXJ0cyA9IFtdCiAgICBmb3Iga2V5IGluIEFERFJfUEFSVF9LRVlTOgogICAgICAgIHYgPSBsb3dlci5nZXQoa2V5KQogICAgICAgIGlmIGlzaW5zdGFuY2Uodiwgc3RyKSBhbmQgdi5zdHJpcCgpIGFuZCB2LnN0cmlwKCkgbm90IGluIHBhcnRzOgogICAgICAgICAgICBwYXJ0cy5hcHBlbmQodi5zdHJpcCgpKQogICAgcmV0dXJuICIgIi5qb2luKHBhcnRzKQoKCmRlZiBub3JtX2FkZHJlc3MocmF3OiBzdHIpIC0+IHN0cjoKICAgICIiIkNhbm9uaWNhbCBmb3JtIGZvciBjb21wYXJpc29uOiBjb2xsYXBzZSB3aGl0ZXNwYWNlIGFuZCBkcm9wIGEKICAgIHNwYWNlIHNpdHRpbmcgYmV0d2VlbiB0d28gQ0pLIGNoYXJhY3RlcnMgKCfkuIrmtbfluIIg5rWm5Lic5paw5Yy6JyBhbmQKICAgICfkuIrmtbfluILmtabkuJzmlrDljLonIGFyZSB0aGUgc2FtZSBhZGRyZXNzKS4gU3BhY2VzIGluIExhdGluLXNjcmlwdAogICAgYWRkcmVzc2VzIGFyZSBzaWduaWZpY2FudCBhbmQgYXJlIGtlcHQuIiIiCiAgICB2ID0gcmUuc3ViKHIiXHMrIiwgIiAiLCByYXcpLnN0cmlwKCkKICAgIHJldHVybiByZS5zdWIociIoPzw9W1x1NGUwMC1cdTlmZmZdKVxzKyg/PVtcdTRlMDAtXHU5ZmZmXSkiLCAiIiwgdikKCgpEQVlfQ09ERVMgPSB7Im1vbmRheSI6ICJNbyIsICJ0dWVzZGF5IjogIlR1IiwgIndlZG5lc2RheSI6ICJXZSIsCiAgICAgICAgICAgICAidGh1cnNkYXkiOiAiVGgiLCAiZnJpZGF5IjogIkZyIiwgInNhdHVyZGF5IjogIlNhIiwKICAgICAgICAgICAgICJzdW5kYXkiOiAiU3UifQpEQVlfT1JERVIgPSBbIk1vIiwgIlR1IiwgIldlIiwgIlRoIiwgIkZyIiwgIlNhIiwgIlN1Il0KCgpkZWYgbm9ybV9ob3VycyhyYXc6IHN0cikgLT4gc3RyOgogICAgIiIiQ2Fub25pY2FsIGZvcm06IGRyb3AgcGFyZW50aGV0aWNhbCBhbm5vdGF0aW9ucyBzdWNoIGFzCiAgICAn77yI6aKE57qm5Yi277yJJyAvICcoYnkgYXBwb2ludG1lbnQpJyBhbmQgY29sbGFwc2Ugd2hpdGVzcGFjZS4iIiIKICAgIHYgPSByZS5zdWIociJb77yIKF1bXu+8iSldKlvvvIkpXSIsICIiLCByYXcpCiAgICByZXR1cm4gcmUuc3ViKHIiXHMrIiwgIiAiLCB2KS5zdHJpcCgpCgoKY2xhc3MgUGFnZVBhcnNlcihIVE1MUGFyc2VyKToKICAgICIiIkNvbGxlY3QgSlNPTi1MRCBibG9ja3MgYW5kIHZpc2libGUgdGV4dCBmcm9tIG9uZSBIVE1MIHBhZ2UuIiIiCgogICAgZGVmIF9faW5pdF9fKHNlbGYpOgogICAgICAgIHN1cGVyKCkuX19pbml0X18oY29udmVydF9jaGFycmVmcz1UcnVlKQogICAgICAgIHNlbGYuanNvbmxkID0gW10KICAgICAgICBzZWxmLmpzb25sZF9lcnJvcnMgPSAwCiAgICAgICAgc2VsZi50ZXh0X3BhcnRzID0gW10KICAgICAgICBzZWxmLl9pbl9qc29ubGQgPSBGYWxzZQogICAgICAgIHNlbGYuX2luX2hpZGRlbiA9IDAgICMgaW5zaWRlIHNjcmlwdC9zdHlsZQogICAgICAgIHNlbGYuX2J1ZiA9IFtdCgogICAgZGVmIGhhbmRsZV9zdGFydHRhZyhzZWxmLCB0YWcsIGF0dHJzKToKICAgICAgICBhdHRycyA9IGRpY3QoYXR0cnMpCiAgICAgICAgaWYgdGFnID09ICJzY3JpcHQiIGFuZCBhdHRycy5nZXQoInR5cGUiKSA9PSAiYXBwbGljYXRpb24vbGQranNvbiI6CiAgICAgICAgICAgIHNlbGYuX2luX2pzb25sZCA9IFRydWUKICAgICAgICAgICAgc2VsZi5fYnVmID0gW10KICAgICAgICBlbGlmIHRhZyBpbiAoInNjcmlwdCIsICJzdHlsZSIpOgogICAgICAgICAgICBzZWxmLl9pbl9oaWRkZW4gKz0gMQoKICAgIGRlZiBoYW5kbGVfZW5kdGFnKHNlbGYsIHRhZyk6CiAgICAgICAgaWYgdGFnID09ICJzY3JpcHQiIGFuZCBzZWxmLl9pbl9qc29ubGQ6CiAgICAgICAgICAgIHNlbGYuX2luX2pzb25sZCA9IEZhbHNlCiAgICAgICAgICAgIHRyeToKICAgICAgICAgICAgICAgIHNlbGYuanNvbmxkLmFwcGVuZChqc29uLmxvYWRzKCIiLmpvaW4oc2VsZi5fYnVmKSkpCiAgICAgICAgICAgIGV4Y2VwdCBqc29uLkpTT05EZWNvZGVFcnJvcjoKICAgICAgICAgICAgICAgIHNlbGYuanNvbmxkX2Vycm9ycyArPSAxCiAgICAgICAgZWxpZiB0YWcgaW4gKCJzY3JpcHQiLCAic3R5bGUiKSBhbmQgc2VsZi5faW5faGlkZGVuOgogICAgICAgICAgICBzZWxmLl9pbl9oaWRkZW4gLT0gMQoKICAgIGRlZiBoYW5kbGVfZGF0YShzZWxmLCBkYXRhKToKICAgICAgICBpZiBzZWxmLl9pbl9qc29ubGQ6CiAgICAgICAgICAgIHNlbGYuX2J1Zi5hcHBlbmQoZGF0YSkKICAgICAgICBlbGlmIG5vdCBzZWxmLl9pbl9oaWRkZW46CiAgICAgICAgICAgIHNlbGYudGV4dF9wYXJ0cy5hcHBlbmQoZGF0YSkKCiAgICBAcHJvcGVydHkKICAgIGRlZiB2aXNpYmxlX3RleHQoc2VsZikgLT4gc3RyOgogICAgICAgIHJldHVybiAiICIuam9pbihzZWxmLnRleHRfcGFydHMpCgoKQlVTSU5FU1NfVFlQRV9ISU5UUyA9ICgiYnVzaW5lc3MiLCAib3JnYW5pemF0aW9uIiwgInNhbG9uIiwgInN0b3JlIiwKICAgICAgICAgICAgICAgICAgICAgICAic2hvcCIsICJyZXN0YXVyYW50IiwgImRlbnRpc3QiLCAiY2xpbmljIiwgInN0dWRpbyIpCgoKZGVmIF9pc19idXNpbmVzc19ub2RlKG5vZGUpIC0+IGJvb2w6CiAgICAiIiJBIG5vZGUgZGVzY3JpYmVzIHRoZSBidXNpbmVzcyBpdHNlbGYgKExvY2FsQnVzaW5lc3MsIEJlYXV0eVNhbG9uLAogICAgT3JnYW5pemF0aW9uLi4uKSwgYXMgb3Bwb3NlZCB0byBhbiBhcnRpY2xlLCBGQVEgcXVlc3Rpb24sIHBlcnNvbiwKICAgIHByb2R1Y3Qgb3IgYnJlYWRjcnVtYiB0aGF0IG1lcmVseSBhcHBlYXJzIG9uIHRoZSBzYW1lIHBhZ2UuIiIiCiAgICB0ID0gbm9kZS5nZXQoIkB0eXBlIiwgIiIpCiAgICB0eXBlcyA9IHQgaWYgaXNpbnN0YW5jZSh0LCBsaXN0KSBlbHNlIFt0XQogICAgcmV0dXJuIGFueShpc2luc3RhbmNlKHgsIHN0cikgYW5kCiAgICAgICAgICAgICAgIGFueShoIGluIHgubG93ZXIoKSBmb3IgaCBpbiBCVVNJTkVTU19UWVBFX0hJTlRTKQogICAgICAgICAgICAgICBmb3IgeCBpbiB0eXBlcykKCgpkZWYgd2Fsa19qc29ubGQobm9kZSwgb3V0LCBfcm9vdD1UcnVlKToKICAgICIiIlB1bGwgYnVzaW5lc3MtZmFjdCBmaWVsZHMgb3V0IG9mIEpTT04tTEQsIHNjb3BlZCB0byB0aGUgYnVzaW5lc3MKICAgIGVudGl0eS4gTmFtZXMgYW5kIFVSTHMgb2Ygb3RoZXIgZW50aXRpZXMgb24gdGhlIHBhZ2UgKGFydGljbGVzLCBGQVEKICAgIHF1ZXN0aW9ucywgcGVvcGxlLCB3b3JrcykgYXJlIG5vdCB0aGUgYnVzaW5lc3MncyBmYWN0cyBhbmQgYXJlIG5vdAogICAgY29sbGVjdGVkLCBzbyB0aGV5IGNhbm5vdCBtYXNxdWVyYWRlIGFzIG5hbWUvVVJMIGNvbmZsaWN0cy4iIiIKICAgIGlmIGlzaW5zdGFuY2Uobm9kZSwgbGlzdCk6CiAgICAgICAgZm9yIGl0ZW0gaW4gbm9kZToKICAgICAgICAgICAgd2Fsa19qc29ubGQoaXRlbSwgb3V0LCBfcm9vdD1GYWxzZSkKICAgIGVsaWYgaXNpbnN0YW5jZShub2RlLCBkaWN0KToKICAgICAgICBpZiAiQGdyYXBoIiBpbiBub2RlOgogICAgICAgICAgICB3YWxrX2pzb25sZChub2RlWyJAZ3JhcGgiXSwgb3V0LCBfcm9vdD1GYWxzZSkKICAgICAgICBiYXJlX2VudGl0eSA9IF9yb290IGFuZCAibmFtZSIgaW4gbm9kZSBhbmQgInRlbGVwaG9uZSIgaW4gbm9kZQogICAgICAgIGlmIF9pc19idXNpbmVzc19ub2RlKG5vZGUpIG9yIGJhcmVfZW50aXR5OgogICAgICAgICAgICBmb3Iga2V5IGluICgibmFtZSIsICJ0ZWxlcGhvbmUiLCAicHJpY2VSYW5nZSIsICJ1cmwiKToKICAgICAgICAgICAgICAgIGlmIGlzaW5zdGFuY2Uobm9kZS5nZXQoa2V5KSwgc3RyKToKICAgICAgICAgICAgICAgICAgICBvdXQuc2V0ZGVmYXVsdChrZXksIHNldCgpKS5hZGQobm9kZVtrZXldLnN0cmlwKCkpCiAgICAgICAgICAgIGFkZHIgPSBub2RlLmdldCgiYWRkcmVzcyIpCiAgICAgICAgICAgIGlmIGlzaW5zdGFuY2UoYWRkciwgZGljdCk6CiAgICAgICAgICAgICAgICBqb2luZWQgPSBjb3JlX2FkZHJlc3MoYWRkcikKICAgICAgICAgICAgICAgIGlmIGpvaW5lZDoKICAgICAgICAgICAgICAgICAgICBvdXQuc2V0ZGVmYXVsdCgiYWRkcmVzcyIsIHNldCgpKS5hZGQoam9pbmVkKQogICAgICAgICAgICBlbGlmIGlzaW5zdGFuY2UoYWRkciwgc3RyKToKICAgICAgICAgICAgICAgIG91dC5zZXRkZWZhdWx0KCJhZGRyZXNzIiwgc2V0KCkpLmFkZChhZGRyLnN0cmlwKCkpCiAgICAgICAgICAgIGhvdXJzID0gbm9kZS5nZXQoIm9wZW5pbmdIb3VycyIpCiAgICAgICAgICAgIGlmIGlzaW5zdGFuY2UoaG91cnMsIHN0cik6CiAgICAgICAgICAgICAgICBvdXQuc2V0ZGVmYXVsdCgib3BlbmluZ0hvdXJzIiwgc2V0KCkpLmFkZChob3Vycy5zdHJpcCgpKQogICAgICAgICAgICBlbGlmIGlzaW5zdGFuY2UoaG91cnMsIGxpc3QpOgogICAgICAgICAgICAgICAgZm9yIGggaW4gaG91cnM6CiAgICAgICAgICAgICAgICAgICAgaWYgaXNpbnN0YW5jZShoLCBzdHIpOgogICAgICAgICAgICAgICAgICAgICAgICBvdXQuc2V0ZGVmYXVsdCgib3BlbmluZ0hvdXJzIiwgc2V0KCkpLmFkZChoLnN0cmlwKCkpCiAgICAgICAgICAgIHNwZWMgPSBub2RlLmdldCgib3BlbmluZ0hvdXJzU3BlY2lmaWNhdGlvbiIpCiAgICAgICAgICAgIGlmIHNwZWM6CiAgICAgICAgICAgICAgICBmb3IgaXRlbSBpbiAoc3BlYyBpZiBpc2luc3RhbmNlKHNwZWMsIGxpc3QpIGVsc2UgW3NwZWNdKToKICAgICAgICAgICAgICAgICAgICBpZiBub3QgaXNpbnN0YW5jZShpdGVtLCBkaWN0KToKICAgICAgICAgICAgICAgICAgICAgICAgY29udGludWUKICAgICAgICAgICAgICAgICAgICBkYXlzID0gaXRlbS5nZXQoImRheU9mV2VlayIpIG9yIFtdCiAgICAgICAgICAgICAgICAgICAgaWYgaXNpbnN0YW5jZShkYXlzLCBzdHIpOgogICAgICAgICAgICAgICAgICAgICAgICBkYXlzID0gW2RheXNdCiAgICAgICAgICAgICAgICAgICAgY29kZXMgPSBbREFZX0NPREVTLmdldChzdHIoZCkucnNwbGl0KCIvIiwgMSlbLTFdCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAuc3RyaXAoKS5sb3dlcigpLCAiIikKICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb3IgZCBpbiBkYXlzXQogICAgICAgICAgICAgICAgICAgIG9wZW5zLCBjbG9zZXMgPSBpdGVtLmdldCgib3BlbnMiKSwgaXRlbS5nZXQoImNsb3NlcyIpCiAgICAgICAgICAgICAgICAgICAgaWYgY29kZXMgYW5kIGFsbChjb2RlcykgYW5kIG9wZW5zIGFuZCBjbG9zZXM6CiAgICAgICAgICAgICAgICAgICAgICAgIGlmIGxlbihzZXQoY29kZXMpKSA9PSA3OgogICAgICAgICAgICAgICAgICAgICAgICAgICAgc3BhbiA9ICJNby1TdSIKICAgICAgICAgICAgICAgICAgICAgICAgZWxzZToKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNwYW4gPSAiLCIuam9pbihzb3J0ZWQoc2V0KGNvZGVzKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAga2V5PURBWV9PUkRFUi5pbmRleCkpCiAgICAgICAgICAgICAgICAgICAgICAgIG91dC5zZXRkZWZhdWx0KCJvcGVuaW5nSG91cnMiLCBzZXQoKSkuYWRkKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgZiJ7c3Bhbn0ge29wZW5zfS17Y2xvc2VzfSIpCiAgICAgICAgZm9yIHZhbHVlIGluIG5vZGUudmFsdWVzKCk6CiAgICAgICAgICAgIGlmIGlzaW5zdGFuY2UodmFsdWUsIChkaWN0LCBsaXN0KSk6CiAgICAgICAgICAgICAgICB3YWxrX2pzb25sZCh2YWx1ZSwgb3V0LCBfcm9vdD1GYWxzZSkKCgpQUklDRV9LRVlTID0gKCJwcmljZSIsICJwcmljZXJhbmdlIiwgImxvd3ByaWNlIiwgImhpZ2hwcmljZSIpCgoKZGVmIHNjYW5fYWlfanNvbihub2RlLCBzb3VyY2UsIGZvcmJpZGRlbiwgZmFjdHM9Tm9uZSwgX2tleT0iIik6CiAgICAiIiJEZWVwIHNjYW4gb2YgQUktZmFjaW5nIEpTT04uIEZvcmJpZGRlbiBwcmljZXMgYXQgYW55IGRlcHRoOiBhCiAgICBkZWRpY2F0ZWQgcHJpY2Uga2V5IChwcmljZSwgb2ZmZXJzLnByaWNlLCBwcmljZVJhbmdlLCAuLi4pIHdpdGggYQogICAgbnVtZXJpYyBvciBzdHJpbmcgdmFsdWUsIG9yIGEgY3VycmVuY3kgYW1vdW50IGluc2lkZSBhbnkgZnJlZS10ZXh0CiAgICBzdHJpbmc7IGZpbmRpbmdzIGtlZXAgdGhlIEpTT04ga2V5IHNvIHRoZSB2YWx1ZSBjYW4gYmUgbG9jYXRlZC4KICAgIFBob25lIG51bWJlcnMgYXJlIGNvbnNpc3RlbmN5IGZhY3RzIHdoZXJldmVyIHRoZXkgYXBwZWFyIGluIHRoZXNlCiAgICBmaWxlcyDigJQgYSByb290IGZpZWxkLCBhIG5lc3RlZCBib29raW5nLnRlbGVwaG9uZSwgb3IgYSBwaG9uZSBudW1iZXIKICAgIGluc2lkZSBhbiBGQVEgYW5zd2VyIHN0cmluZyBhcmUgYWxsIGNvcGllcyBvZiB0aGUgc2FtZSBmYWN0LiIiIgogICAgaWYgaXNpbnN0YW5jZShub2RlLCBkaWN0KToKICAgICAgICBmb3Iga2V5LCB2YWx1ZSBpbiBub2RlLml0ZW1zKCk6CiAgICAgICAgICAgIHNjYW5fYWlfanNvbih2YWx1ZSwgc291cmNlLCBmb3JiaWRkZW4sIGZhY3RzLCBrZXkpCiAgICBlbGlmIGlzaW5zdGFuY2Uobm9kZSwgbGlzdCk6CiAgICAgICAgZm9yIGl0ZW0gaW4gbm9kZToKICAgICAgICAgICAgc2Nhbl9haV9qc29uKGl0ZW0sIHNvdXJjZSwgZm9yYmlkZGVuLCBmYWN0cywgX2tleSkKICAgIGVsaWYgaXNpbnN0YW5jZShub2RlLCBib29sKToKICAgICAgICByZXR1cm4KICAgIGVsaWYgaXNpbnN0YW5jZShub2RlLCAoaW50LCBmbG9hdCkpOgogICAgICAgIGlmIF9rZXkubG93ZXIoKSBpbiBQUklDRV9LRVlTOgogICAgICAgICAgICBmb3JiaWRkZW4uYXBwZW5kKChmInByaWNlIHZhbHVlIGF0IGtleSB7X2tleSFyfToge25vZGV9IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc291cmNlKSkKICAgIGVsaWYgaXNpbnN0YW5jZShub2RlLCBzdHIpOgogICAgICAgIGlmIF9rZXkubG93ZXIoKSBpbiBQUklDRV9LRVlTIGFuZCBub2RlLnN0cmlwKCk6CiAgICAgICAgICAgIGZvcmJpZGRlbi5hcHBlbmQoKGYicHJpY2UgdmFsdWUgYXQga2V5IHtfa2V5IXJ9OiB7bm9kZS5zdHJpcCgpIXJ9IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc291cmNlKSkKICAgICAgICBlbHNlOgogICAgICAgICAgICBmb3IgbiBpbiBwcmljZV9hbW91bnRzKG5vZGUpOgogICAgICAgICAgICAgICAgZm9yYmlkZGVuLmFwcGVuZCgoZiJwcmljZSDCpXtufSBpbiBBSS1mYWNpbmcgZmlsZSIsIHNvdXJjZSkpCiAgICAgICAgaWYgZmFjdHMgaXMgbm90IE5vbmU6CiAgICAgICAgICAgIGlmIF9rZXkubG93ZXIoKSA9PSAidGVsZXBob25lIjoKICAgICAgICAgICAgICAgIGFkZF9mYWN0KGZhY3RzLCAicGhvbmUiLCBub3JtX3Bob25lKG5vZGUpLCBzb3VyY2UpCiAgICAgICAgICAgIGZvciBtIGluIFBIT05FX1JFLmZpbmRpdGVyKG5vZGUpOgogICAgICAgICAgICAgICAgYWRkX2ZhY3QoZmFjdHMsICJwaG9uZSIsIG5vcm1fcGhvbmUobS5ncm91cCgxKSksIHNvdXJjZSkKCgpkZWYgYWRkX2ZhY3QoZmFjdHMsIGZpZWxkLCB2YWx1ZSwgc291cmNlKToKICAgIHZhbHVlID0gdmFsdWUuc3RyaXAoKQogICAgaWYgdmFsdWU6CiAgICAgICAgZmFjdHMuc2V0ZGVmYXVsdChmaWVsZCwge30pLnNldGRlZmF1bHQodmFsdWUsIFtdKS5hcHBlbmQoc291cmNlKQoKCmRlZiBjb2xsZWN0KHNpdGU6IFBhdGgpOgogICAgZmFjdHMgPSB7fSAgIyBmaWVsZCAtPiB2YWx1ZSAtPiBbc291cmNlc10KICAgIGZvcmJpZGRlbiA9IFtdICAjIChkZXNjcmlwdGlvbiwgc291cmNlKSBmaW5kaW5ncyB0aGF0IG11c3QgbmV2ZXIgYXBwZWFyCiAgICBmb3IgcGF0aCBpbiBzb3J0ZWQoc2l0ZS5yZ2xvYigiKiIpKToKICAgICAgICBpZiBwYXRoLmlzX2RpcigpIG9yICIuZ2l0IiBpbiBwYXRoLnBhcnRzOgogICAgICAgICAgICBjb250aW51ZQogICAgICAgIHJlbCA9IHBhdGgucmVsYXRpdmVfdG8oc2l0ZSkuYXNfcG9zaXgoKQogICAgICAgIGlmIHBhdGguc3VmZml4Lmxvd2VyKCkgaW4gKCIuaHRtbCIsICIuaHRtIik6CiAgICAgICAgICAgIHBhcnNlciA9IFBhZ2VQYXJzZXIoKQogICAgICAgICAgICBwYXJzZXIuZmVlZChwYXRoLnJlYWRfdGV4dChlbmNvZGluZz0idXRmLTgiLCBlcnJvcnM9Imlnbm9yZSIpKQogICAgICAgICAgICBmb3IgXyBpbiByYW5nZShwYXJzZXIuanNvbmxkX2Vycm9ycyk6CiAgICAgICAgICAgICAgICBmb3JiaWRkZW4uYXBwZW5kKCgiaW52YWxpZCBKU09OLUxEIGJsb2NrICh1bnBhcnNlYWJsZSkiLCByZWwpKQogICAgICAgICAgICBmb3IgYmxvY2sgaW4gcGFyc2VyLmpzb25sZDoKICAgICAgICAgICAgICAgIGZvdW5kID0ge30KICAgICAgICAgICAgICAgIHdhbGtfanNvbmxkKGJsb2NrLCBmb3VuZCkKICAgICAgICAgICAgICAgIGZvciBmaWVsZCwgdmFsdWVzIGluIGZvdW5kLml0ZW1zKCk6CiAgICAgICAgICAgICAgICAgICAgZm9yIHYgaW4gdmFsdWVzOgogICAgICAgICAgICAgICAgICAgICAgICBpZiBmaWVsZCA9PSAidGVsZXBob25lIjoKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGFkZF9mYWN0KGZhY3RzLCAicGhvbmUiLCBub3JtX3Bob25lKHYpLCBmIntyZWx9IChKU09OLUxEKSIpCiAgICAgICAgICAgICAgICAgICAgICAgIGVsaWYgZmllbGQgPT0gInByaWNlUmFuZ2UiOgogICAgICAgICAgICAgICAgICAgICAgICAgICAgYW1vdW50cyA9IHByaWNlX2Ftb3VudHModikKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlmIG5vdCBhbW91bnRzOgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGFtb3VudHMgPSByZS5maW5kYWxsKHIiXGRbXGQsXSooPzpcLlxkKyk/IiwgdikKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvciBuIGluIGFtb3VudHM6CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYWRkX2ZhY3QoZmFjdHMsICJwcmljZSIsIG4sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZiJ7cmVsfSAoSlNPTi1MRCBwcmljZVJhbmdlKSIpCiAgICAgICAgICAgICAgICAgICAgICAgIGVsc2U6CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBhZGRfZmFjdChmYWN0cywgZmllbGQsIHYsIGYie3JlbH0gKEpTT04tTEQpIikKICAgICAgICAgICAgZm9yIG0gaW4gUEhPTkVfUkUuZmluZGl0ZXIocGFyc2VyLnZpc2libGVfdGV4dCk6CiAgICAgICAgICAgICAgICBhZGRfZmFjdChmYWN0cywgInBob25lIiwgbm9ybV9waG9uZShtLmdyb3VwKDEpKSwgZiJ7cmVsfSAocGFnZSB0ZXh0KSIpCiAgICAgICAgICAgIGZvciBuIGluIHByaWNlX2Ftb3VudHMocGFyc2VyLnZpc2libGVfdGV4dCk6CiAgICAgICAgICAgICAgICBhZGRfZmFjdChmYWN0cywgInByaWNlIiwgbiwgZiJ7cmVsfSAocGFnZSB0ZXh0KSIpCiAgICAgICAgZWxpZiBwYXRoLm5hbWUubG93ZXIoKSBpbiAoImxsbXMudHh0IiwgImxsbXMtZnVsbC50eHQiLCAiYWkudHh0Iik6CiAgICAgICAgICAgIHRhZyA9ICIobGxtcy50eHQpIiBpZiBwYXRoLm5hbWUubG93ZXIoKS5zdGFydHN3aXRoKCJsbG1zIikgXAogICAgICAgICAgICAgICAgZWxzZSAiKGFpLnR4dCkiCiAgICAgICAgICAgIHRleHQgPSBwYXRoLnJlYWRfdGV4dChlbmNvZGluZz0idXRmLTgiLCBlcnJvcnM9Imlnbm9yZSIpCiAgICAgICAgICAgIGZvciBtIGluIFBIT05FX1JFLmZpbmRpdGVyKHRleHQpOgogICAgICAgICAgICAgICAgYWRkX2ZhY3QoZmFjdHMsICJwaG9uZSIsIG5vcm1fcGhvbmUobS5ncm91cCgxKSksCiAgICAgICAgICAgICAgICAgICAgICAgICBmIntyZWx9IHt0YWd9IikKICAgICAgICAgICAgIyBQb2xpY3kgY2hlY2ssIG5vdCBjb25zaXN0ZW5jeTogQUktZmFjaW5nIGZpbGVzIG11c3Qgbm90CiAgICAgICAgICAgICMgY2FycnkgcHJpY2VzIGF0IGFsbCwgc28gYW55IGFtb3VudCBoZXJlIGlzIGEgdmlvbGF0aW9uLAogICAgICAgICAgICAjIHJlZ2FyZGxlc3Mgb2Ygd2hldGhlciBwYWdlcyBhZ3JlZSB3aXRoIGl0LiBOZWdhdGVkCiAgICAgICAgICAgICMgbWVudGlvbnMgKCLml6AgwqUyNTAwIOahoyIsICJubyAyNTAw5YWDIHRpZXIiKSBhcmUgZXhlbXB0OgogICAgICAgICAgICAjIHRoZXkgc3RhdGUgdGhhdCB0aGUgcHJpY2UgZG9lcyBub3QgZXhpc3QuCiAgICAgICAgICAgIGZvciBtIGluIFBSSUNFX1JFLmZpbmRpdGVyKHRleHQpOgogICAgICAgICAgICAgICAgaWYgaXNfbmVnYXRlZCh0ZXh0LCBtLnN0YXJ0KCkpOgogICAgICAgICAgICAgICAgICAgIGNvbnRpbnVlCiAgICAgICAgICAgICAgICBuID0gKG0uZ3JvdXAoMSkgb3IgbS5ncm91cCgyKSkucmVwbGFjZSgiLCIsICIiKQogICAgICAgICAgICAgICAgZm9yYmlkZGVuLmFwcGVuZCgoZiJwcmljZSDCpXtufSBpbiBBSS1mYWNpbmcgZmlsZSIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmIntyZWx9IHt0YWd9IikpCiAgICAgICAgICAgICMgQSBwcmljZSBsaXN0IGluIHRoZXNlIGZpbGVzIGlzIG9mdGVuIGJhcmUgbnVtYmVycyB1bmRlciBhCiAgICAgICAgICAgICMg5Lu35qC8L3ByaWNlIGhlYWRpbmcsIHdpdGggbm8gY3VycmVuY3kgbWFya2VyIGF0IGFsbC4gT24gYQogICAgICAgICAgICAjIGxpbmUgdGhhdCBpcyBjbGVhcmx5IGFib3V0IHByaWNlcywgM+KAkzUgZGlnaXQgYmFyZSBudW1iZXJzCiAgICAgICAgICAgICMgYXJlIHByaWNlcyB0b28gKHNhbWUgbmVnYXRpb24gZXhlbXB0aW9uKS4KICAgICAgICAgICAgZm9yIGxpbmUgaW4gdGV4dC5zcGxpdGxpbmVzKCk6CiAgICAgICAgICAgICAgICBpZiBQUklDRV9DT05URVhUX1JFLnNlYXJjaChsaW5lKToKICAgICAgICAgICAgICAgICAgICBtYXJrZWQgPSBzZXQocHJpY2VfYW1vdW50cyhsaW5lKSkKICAgICAgICAgICAgICAgICAgICBmb3IgbSBpbiByZS5maW5kaXRlcihyIig/PCFbXGQuXSkoXGR7Myw1fSkoPyFcZCkoPyFcLlxkKSIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbGluZSk6CiAgICAgICAgICAgICAgICAgICAgICAgIGlmIG0uZ3JvdXAoMSkgaW4gbWFya2VkOgogICAgICAgICAgICAgICAgICAgICAgICAgICAgY29udGludWUKICAgICAgICAgICAgICAgICAgICAgICAgaWYgaXNfbmVnYXRlZChsaW5lLCBtLnN0YXJ0KCkpOgogICAgICAgICAgICAgICAgICAgICAgICAgICAgY29udGludWUKICAgICAgICAgICAgICAgICAgICAgICAgZm9yYmlkZGVuLmFwcGVuZCgKICAgICAgICAgICAgICAgICAgICAgICAgICAgIChmInByaWNlIMKle20uZ3JvdXAoMSl9IGluIEFJLWZhY2luZyBmaWxlIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmIntyZWx9IHt0YWd9IikpCiAgICAgICAgZWxpZiBwYXRoLnN1ZmZpeC5sb3dlcigpID09ICIuanNvbiIgYW5kICJhaSIgaW4gcGF0aC5wYXJ0czoKICAgICAgICAgICAgdHJ5OgogICAgICAgICAgICAgICAgZGF0YSA9IGpzb24ubG9hZHMocGF0aC5yZWFkX3RleHQoZW5jb2Rpbmc9InV0Zi04IiwgZXJyb3JzPSJpZ25vcmUiKSkKICAgICAgICAgICAgZXhjZXB0IGpzb24uSlNPTkRlY29kZUVycm9yOgogICAgICAgICAgICAgICAgZm9yYmlkZGVuLmFwcGVuZCgoImludmFsaWQgSlNPTiIsIHJlbCkpCiAgICAgICAgICAgICAgICBjb250aW51ZQogICAgICAgICAgICAjIENvbnNpc3RlbmN5IGZhY3RzIGNvbWUgZnJvbSB0aGUgZmlsZSdzIHJvb3Qgb2JqZWN0IG9ubHk6CiAgICAgICAgICAgICMgaXQgZGVzY3JpYmVzIHRoZSBidXNpbmVzcy4gTmVzdGVkIGVudHJpZXMgYXJlIGNhdGFsb2cgaXRlbXMKICAgICAgICAgICAgIyAoc2VydmljZXMsIEZBUXMpIHdob3NlIG5hbWVzIGFyZSBub3QgdGhlIGJ1c2luZXNzJ3MgbmFtZS4KICAgICAgICAgICAgaWYgaXNpbnN0YW5jZShkYXRhLCBkaWN0KToKICAgICAgICAgICAgICAgIGZvciBrZXkgaW4gKCJuYW1lIiwgInRlbGVwaG9uZSIsICJ1cmwiLCAib3BlbmluZ0hvdXJzIik6CiAgICAgICAgICAgICAgICAgICAgdiA9IGRhdGEuZ2V0KGtleSkKICAgICAgICAgICAgICAgICAgICBpZiBpc2luc3RhbmNlKHYsIHN0cik6CiAgICAgICAgICAgICAgICAgICAgICAgIGlmIGtleSA9PSAidGVsZXBob25lIjoKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGFkZF9mYWN0KGZhY3RzLCAicGhvbmUiLCBub3JtX3Bob25lKHYpLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZiJ7cmVsfSAoYWkganNvbikiKQogICAgICAgICAgICAgICAgICAgICAgICBlbGlmIGtleSA9PSAibmFtZSI6CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBhZGRfZmFjdChmYWN0cywgIm5hbWUiLCBub3JtX25hbWUodiksCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmIntyZWx9IChhaSBqc29uKSIpCiAgICAgICAgICAgICAgICAgICAgICAgIGVsc2U6CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBhZGRfZmFjdChmYWN0cywga2V5LCB2LCBmIntyZWx9IChhaSBqc29uKSIpCiAgICAgICAgICAgICAgICBhZGRyID0gZGF0YS5nZXQoImFkZHJlc3MiKQogICAgICAgICAgICAgICAgaWYgaXNpbnN0YW5jZShhZGRyLCBzdHIpOgogICAgICAgICAgICAgICAgICAgIGFkZF9mYWN0KGZhY3RzLCAiYWRkcmVzcyIsIGFkZHIsIGYie3JlbH0gKGFpIGpzb24pIikKICAgICAgICAgICAgICAgIGVsaWYgaXNpbnN0YW5jZShhZGRyLCBkaWN0KToKICAgICAgICAgICAgICAgICAgICBqb2luZWQgPSBjb3JlX2FkZHJlc3MoYWRkcikKICAgICAgICAgICAgICAgICAgICBpZiBqb2luZWQ6CiAgICAgICAgICAgICAgICAgICAgICAgIGFkZF9mYWN0KGZhY3RzLCAiYWRkcmVzcyIsIGpvaW5lZCwgZiJ7cmVsfSAoYWkganNvbikiKQogICAgICAgICAgICAjIERlZXAgc2NhbjogZm9yYmlkZGVuIHByaWNlcyBhdCBhbnkgZGVwdGgsIGFuZCBldmVyeSBwaG9uZQogICAgICAgICAgICAjIGNvcHkgKG5lc3RlZCBmaWVsZHMgYW5kIGZyZWUtdGV4dCBhbnN3ZXJzIGluY2x1ZGVkKS4KICAgICAgICAgICAgc2Nhbl9haV9qc29uKGRhdGEsIGYie3JlbH0gKGFpIGpzb24pIiwgZm9yYmlkZGVuLCBmYWN0cykKICAgICMgQ2Fub25pY2FsaXplIHZhbHVlcyBjb2xsZWN0ZWQgZnJvbSBldmVyeSBzdXJmYWNlLCBzbyB0aGF0IG1lcmVseQogICAgIyB0eXBvZ3JhcGhpYyBkaWZmZXJlbmNlcyBuZXZlciBtYXNxdWVyYWRlIGFzIGZhY3QgY29uZmxpY3RzLgogICAgZm9yIGZpZWxkLCBub3JtIGluICgoIm5hbWUiLCBub3JtX25hbWUpLCAoImFkZHJlc3MiLCBub3JtX2FkZHJlc3MpLAogICAgICAgICAgICAgICAgICAgICAgICAoIm9wZW5pbmdIb3VycyIsIG5vcm1faG91cnMpKToKICAgICAgICBpZiBmaWVsZCBpbiBmYWN0czoKICAgICAgICAgICAgbWVyZ2VkID0ge30KICAgICAgICAgICAgZm9yIHZhbHVlLCBzb3VyY2VzIGluIGZhY3RzW2ZpZWxkXS5pdGVtcygpOgogICAgICAgICAgICAgICAgbWVyZ2VkLnNldGRlZmF1bHQobm9ybSh2YWx1ZSksIFtdKS5leHRlbmQoc291cmNlcykKICAgICAgICAgICAgZmFjdHNbZmllbGRdID0gbWVyZ2VkCiAgICByZXR1cm4gZmFjdHMsIGxpc3QoZGljdC5mcm9ta2V5cyhmb3JiaWRkZW4pKQoKCmRlZiBjb25mbGljdHMoZmFjdHMpOgogICAgcmV0dXJuIHtmOiB2YWxzIGZvciBmLCB2YWxzIGluIGZhY3RzLml0ZW1zKCkgaWYgbGVuKHZhbHMpID4gMX0KCgpkZWYgbWFpbihhcmd2KToKICAgIHRyeTogICMgwqUgYW5kIENKSyBvdXRwdXQgbXVzdCBub3QgY3Jhc2ggbGVnYWN5IFdpbmRvd3MgY29uc29sZXMKICAgICAgICBzeXMuc3Rkb3V0LnJlY29uZmlndXJlKGVuY29kaW5nPSJ1dGYtOCIsIGVycm9ycz0icmVwbGFjZSIpCiAgICBleGNlcHQgRXhjZXB0aW9uOgogICAgICAgIHBhc3MKICAgIGFyZ3MgPSBbYSBmb3IgYSBpbiBhcmd2WzE6XSBpZiBub3QgYS5zdGFydHN3aXRoKCItLSIpXQogICAgYXNfanNvbiA9ICItLWpzb24iIGluIGFyZ3YKICAgIGlmIGxlbihhcmdzKSAhPSAxIG9yIG5vdCBQYXRoKGFyZ3NbMF0pLmlzX2RpcigpOgogICAgICAgIHByaW50KF9fZG9jX18pCiAgICAgICAgcmV0dXJuIDIKICAgIGZhY3RzLCBmb3JiaWRkZW4gPSBjb2xsZWN0KFBhdGgoYXJnc1swXSkpCiAgICBiYWQgPSBjb25mbGljdHMoZmFjdHMpCiAgICBpZiBhc19qc29uOgogICAgICAgIHByaW50KGpzb24uZHVtcHMoeyJmYWN0cyI6IHtmOiB7djogcyBmb3IgdiwgcyBpbiB2YWxzLml0ZW1zKCl9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvciBmLCB2YWxzIGluIGZhY3RzLml0ZW1zKCl9LAogICAgICAgICAgICAgICAgICAgICAgICAgICJjb25mbGljdHMiOiBsaXN0KGJhZCksCiAgICAgICAgICAgICAgICAgICAgICAgICAgImZvcmJpZGRlbiI6IFt7ImZpbmRpbmciOiBkLCAic291cmNlIjogc30KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvciBkLCBzIGluIGZvcmJpZGRlbl19LAogICAgICAgICAgICAgICAgICAgICAgICAgZW5zdXJlX2FzY2lpPUZhbHNlLCBpbmRlbnQ9MikpCiAgICBlbHNlOgogICAgICAgIGZvciBmaWVsZCBpbiBzb3J0ZWQoZmFjdHMpOgogICAgICAgICAgICB2YWxzID0gZmFjdHNbZmllbGRdCiAgICAgICAgICAgIG1hcmsgPSAiQ09ORkxJQ1QiIGlmIGZpZWxkIGluIGJhZCBlbHNlICJvayIKICAgICAgICAgICAgcHJpbnQoZiJbe21hcmt9XSB7ZmllbGR9OiB7bGVuKHZhbHMpfSBkaXN0aW5jdCB2YWx1ZShzKSIpCiAgICAgICAgICAgIGZvciB2YWx1ZSwgc291cmNlcyBpbiBzb3J0ZWQodmFscy5pdGVtcygpKToKICAgICAgICAgICAgICAgIHVuaXEgPSBzb3J0ZWQoc2V0KHNvdXJjZXMpKQogICAgICAgICAgICAgICAgc2hvd24gPSAiLCAiLmpvaW4odW5pcVs6NF0pCiAgICAgICAgICAgICAgICBpZiBsZW4odW5pcSkgPiA0OgogICAgICAgICAgICAgICAgICAgIHNob3duICs9IGYiICgre2xlbih1bmlxKSAtIDR9IG1vcmUpIgogICAgICAgICAgICAgICAgcHJpbnQoZiIgICAgLSB7dmFsdWUhcn0gIDwtIHtzaG93bn0iKQogICAgICAgIGZvciBkZXNjLCBzb3VyY2UgaW4gZm9yYmlkZGVuOgogICAgICAgICAgICBwcmludChmIltGT1JCSURERU5dIHtkZXNjfSAgPC0ge3NvdXJjZX0iKQogICAgICAgIHByaW50KGYiXG57bGVuKGJhZCl9IGNvbmZsaWN0ZWQgZmllbGQocyksIHtsZW4oZm9yYmlkZGVuKX0gZm9yYmlkZGVuICIKICAgICAgICAgICAgICBmImZpbmRpbmcocyksIHtsZW4oZmFjdHMpfSBmaWVsZChzKSBjaGVja2VkLiIpCiAgICByZXR1cm4gMSBpZiAoYmFkIG9yIGZvcmJpZGRlbikgZWxzZSAwCgoKaWYgX19uYW1lX18gPT0gIl9fbWFpbl9fIjoKICAgIHN5cy5leGl0KG1haW4oc3lzLmFyZ3YpKQo=
+#!/usr/bin/env python3
+"""website-fact-check: find inconsistent business facts across a static website.
+
+A local business repeats the same facts — name, phone, address, opening
+hours, prices — in visible copy, JSON-LD structured data, FAQ pages and
+llms.txt. When one copy is edited and the others are not, search engines
+and AI assistants pick up conflicting facts. This tool scans a static site
+directory, extracts the facts it can find deterministically (no model
+calls), and reports every field that has more than one distinct value,
+with the file and source of each value.
+
+Usage:
+    python3 fact_check.py <site-dir> [--json]
+
+Exit code: 0 = no conflicts, 1 = conflicts found, 2 = usage error.
+Standard library only.
+"""
+
+import json
+import re
+import sys
+from html.parser import HTMLParser
+from pathlib import Path
+
+PHONE_RE = re.compile(r"(?<!\d)(?:\+?86[-\s]?)?(1\d{2}[-\s]?\d{4}[-\s]?\d{4})(?!\d)")
+PRICE_RE = re.compile(r"(?:¥|￥|CNY\s?|RMB\s?)(\d[\d,]*(?:\.\d+)?)"
+                      r"|(\d[\d,]*(?:\.\d+)?)\s*元")
+
+
+PRICE_CONTEXT_RE = re.compile(r"价格|价目|收费|定价|price|cost", re.I)
+NEGATION_TAIL_RE = re.compile(
+    r"(?:无|没有|不含|不设|不提供|\bno\b|\bnot\b|\bwithout\b)\s*$", re.I)
+
+
+def is_negated(text, start):
+    """A price mention is negated only when a negation word sits
+    immediately before the amount, with nothing but whitespace in
+    between: '无 ¥2500 档', 'no 2500 tier' state that the price does
+    NOT exist. A negation that governs something else in the same
+    sentence — 'no fee, 1300', '无预约费，1300元' — does not exempt
+    the price that follows it."""
+    return bool(NEGATION_TAIL_RE.search(text[:start]))
+
+
+def price_amounts(text):
+    """All currency amounts in a string, normalized (no thousands
+    separators). Matches ¥1500, CNY 1500 and the suffix form 1500元."""
+    out = []
+    for m in PRICE_RE.finditer(text):
+        out.append((m.group(1) or m.group(2)).replace(",", ""))
+    return out
+
+
+def norm_phone(raw: str) -> str:
+    digits = re.sub(r"\D", "", raw)
+    if digits.startswith("86") and len(digits) == 13:
+        digits = digits[2:]
+    return digits
+
+
+def norm_text(raw: str) -> str:
+    return re.sub(r"\s+", " ", raw).strip().lower()
+
+
+def norm_name(raw: str) -> str:
+    """Canonical form for names: collapse whitespace and drop spaces
+    around a middle dot, so 'Brand · Studio' and 'Brand·Studio' count
+    as the same fact instead of a false conflict."""
+    v = re.sub(r"\s+", " ", raw).strip()
+    v = re.sub(r"\s*·\s*", "·", v)
+    return v
+
+
+ADDR_PART_KEYS = ("streetaddress", "street", "addresslocality", "locality",
+                  "addressregion", "region", "postalcode")
+
+
+def core_address(addr: dict) -> str:
+    """The comparable core of an address object: postal parts only, in a
+    fixed field order. Auxiliary keys — landmark, directions, notes —
+    are how-to-find-us prose, not address facts, and never take part.
+    Country is excluded on purpose: surfaces routinely state it on one
+    copy and omit it on another, and an omission is not a contradiction."""
+    lower = {str(k).lower(): v for k, v in addr.items()}
+    parts = []
+    for key in ADDR_PART_KEYS:
+        v = lower.get(key)
+        if isinstance(v, str) and v.strip() and v.strip() not in parts:
+            parts.append(v.strip())
+    return " ".join(parts)
+
+
+def norm_address(raw: str) -> str:
+    """Canonical form for comparison: collapse whitespace and drop a
+    space sitting between two CJK characters ('上海市 浦东新区' and
+    '上海市浦东新区' are the same address). Spaces in Latin-script
+    addresses are significant and are kept."""
+    v = re.sub(r"\s+", " ", raw).strip()
+    return re.sub(r"(?<=[\u4e00-\u9fff])\s+(?=[\u4e00-\u9fff])", "", v)
+
+
+DAY_CODES = {"monday": "Mo", "tuesday": "Tu", "wednesday": "We",
+             "thursday": "Th", "friday": "Fr", "saturday": "Sa",
+             "sunday": "Su"}
+DAY_ORDER = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
+
+
+def norm_hours(raw: str) -> str:
+    """Canonical form: drop parenthetical annotations such as
+    '（预约制）' / '(by appointment)' and collapse whitespace."""
+    v = re.sub(r"[（(][^）)]*[）)]", "", raw)
+    return re.sub(r"\s+", " ", v).strip()
+
+
+class PageParser(HTMLParser):
+    """Collect JSON-LD blocks and visible text from one HTML page."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.jsonld = []
+        self.jsonld_errors = 0
+        self.text_parts = []
+        self._in_jsonld = False
+        self._in_hidden = 0  # inside script/style
+        self._buf = []
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "script" and attrs.get("type") == "application/ld+json":
+            self._in_jsonld = True
+            self._buf = []
+        elif tag in ("script", "style"):
+            self._in_hidden += 1
+
+    def handle_endtag(self, tag):
+        if tag == "script" and self._in_jsonld:
+            self._in_jsonld = False
+            try:
+                self.jsonld.append(json.loads("".join(self._buf)))
+            except json.JSONDecodeError:
+                self.jsonld_errors += 1
+        elif tag in ("script", "style") and self._in_hidden:
+            self._in_hidden -= 1
+
+    def handle_data(self, data):
+        if self._in_jsonld:
+            self._buf.append(data)
+        elif not self._in_hidden:
+            self.text_parts.append(data)
+
+    @property
+    def visible_text(self) -> str:
+        return " ".join(self.text_parts)
+
+
+BUSINESS_TYPE_HINTS = ("business", "organization", "salon", "store",
+                       "shop", "restaurant", "dentist", "clinic", "studio")
+
+
+def _is_business_node(node) -> bool:
+    """A node describes the business itself (LocalBusiness, BeautySalon,
+    Organization...), as opposed to an article, FAQ question, person,
+    product or breadcrumb that merely appears on the same page."""
+    t = node.get("@type", "")
+    types = t if isinstance(t, list) else [t]
+    return any(isinstance(x, str) and
+               any(h in x.lower() for h in BUSINESS_TYPE_HINTS)
+               for x in types)
+
+
+def walk_jsonld(node, out, _root=True):
+    """Pull business-fact fields out of JSON-LD, scoped to the business
+    entity. Names and URLs of other entities on the page (articles, FAQ
+    questions, people, works) are not the business's facts and are not
+    collected, so they cannot masquerade as name/URL conflicts."""
+    if isinstance(node, list):
+        for item in node:
+            walk_jsonld(item, out, _root=False)
+    elif isinstance(node, dict):
+        if "@graph" in node:
+            walk_jsonld(node["@graph"], out, _root=False)
+        bare_entity = _root and "name" in node and "telephone" in node
+        if _is_business_node(node) or bare_entity:
+            for key in ("name", "telephone", "priceRange", "url"):
+                if isinstance(node.get(key), str):
+                    out.setdefault(key, set()).add(node[key].strip())
+            addr = node.get("address")
+            if isinstance(addr, dict):
+                joined = core_address(addr)
+                if joined:
+                    out.setdefault("address", set()).add(joined)
+            elif isinstance(addr, str):
+                out.setdefault("address", set()).add(addr.strip())
+            hours = node.get("openingHours")
+            if isinstance(hours, str):
+                out.setdefault("openingHours", set()).add(hours.strip())
+            elif isinstance(hours, list):
+                for h in hours:
+                    if isinstance(h, str):
+                        out.setdefault("openingHours", set()).add(h.strip())
+            spec = node.get("openingHoursSpecification")
+            if spec:
+                for item in (spec if isinstance(spec, list) else [spec]):
+                    if not isinstance(item, dict):
+                        continue
+                    days = item.get("dayOfWeek") or []
+                    if isinstance(days, str):
+                        days = [days]
+                    codes = [DAY_CODES.get(str(d).rsplit("/", 1)[-1]
+                                           .strip().lower(), "")
+                             for d in days]
+                    opens, closes = item.get("opens"), item.get("closes")
+                    if codes and all(codes) and opens and closes:
+                        if len(set(codes)) == 7:
+                            span = "Mo-Su"
+                        else:
+                            span = ",".join(sorted(set(codes),
+                                                   key=DAY_ORDER.index))
+                        out.setdefault("openingHours", set()).add(
+                            f"{span} {opens}-{closes}")
+        for value in node.values():
+            if isinstance(value, (dict, list)):
+                walk_jsonld(value, out, _root=False)
+
+
+PRICE_KEYS = ("price", "pricerange", "lowprice", "highprice")
+
+
+def scan_ai_json(node, source, forbidden, facts=None, _key=""):
+    """Deep scan of AI-facing JSON. Forbidden prices at any depth: a
+    dedicated price key (price, offers.price, priceRange, ...) with a
+    numeric or string value, or a currency amount inside any free-text
+    string; findings keep the JSON key so the value can be located.
+    Phone numbers are consistency facts wherever they appear in these
+    files — a root field, a nested booking.telephone, or a phone number
+    inside an FAQ answer string are all copies of the same fact."""
+    if isinstance(node, dict):
+        for key, value in node.items():
+            scan_ai_json(value, source, forbidden, facts, key)
+    elif isinstance(node, list):
+        for item in node:
+            scan_ai_json(item, source, forbidden, facts, _key)
+    elif isinstance(node, bool):
+        return
+    elif isinstance(node, (int, float)):
+        if _key.lower() in PRICE_KEYS:
+            forbidden.append((f"price value at key {_key!r}: {node}",
+                              source))
+    elif isinstance(node, str):
+        if _key.lower() in PRICE_KEYS and node.strip():
+            forbidden.append((f"price value at key {_key!r}: {node.strip()!r}",
+                              source))
+        else:
+            for n in price_amounts(node):
+                forbidden.append((f"price ¥{n} in AI-facing file", source))
+        if facts is not None:
+            if _key.lower() == "telephone":
+                add_fact(facts, "phone", norm_phone(node), source)
+            for m in PHONE_RE.finditer(node):
+                add_fact(facts, "phone", norm_phone(m.group(1)), source)
+
+
+def add_fact(facts, field, value, source):
+    value = value.strip()
+    if value:
+        facts.setdefault(field, {}).setdefault(value, []).append(source)
+
+
+def collect(site: Path):
+    facts = {}  # field -> value -> [sources]
+    forbidden = []  # (description, source) findings that must never appear
+    for path in sorted(site.rglob("*")):
+        if path.is_dir() or ".git" in path.parts:
+            continue
+        rel = path.relative_to(site).as_posix()
+        if path.suffix.lower() in (".html", ".htm"):
+            parser = PageParser()
+            parser.feed(path.read_text(encoding="utf-8", errors="ignore"))
+            for _ in range(parser.jsonld_errors):
+                forbidden.append(("invalid JSON-LD block (unparseable)", rel))
+            for block in parser.jsonld:
+                found = {}
+                walk_jsonld(block, found)
+                for field, values in found.items():
+                    for v in values:
+                        if field == "telephone":
+                            add_fact(facts, "phone", norm_phone(v), f"{rel} (JSON-LD)")
+                        elif field == "priceRange":
+                            amounts = price_amounts(v)
+                            if not amounts:
+                                amounts = re.findall(r"\d[\d,]*(?:\.\d+)?", v)
+                            for n in amounts:
+                                add_fact(facts, "price", n,
+                                         f"{rel} (JSON-LD priceRange)")
+                        else:
+                            add_fact(facts, field, v, f"{rel} (JSON-LD)")
+            for m in PHONE_RE.finditer(parser.visible_text):
+                add_fact(facts, "phone", norm_phone(m.group(1)), f"{rel} (page text)")
+            for n in price_amounts(parser.visible_text):
+                add_fact(facts, "price", n, f"{rel} (page text)")
+        elif path.name.lower() in ("llms.txt", "llms-full.txt", "ai.txt"):
+            tag = "(llms.txt)" if path.name.lower().startswith("llms") \
+                else "(ai.txt)"
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            for m in PHONE_RE.finditer(text):
+                add_fact(facts, "phone", norm_phone(m.group(1)),
+                         f"{rel} {tag}")
+            # Policy check, not consistency: AI-facing files must not
+            # carry prices at all, so any amount here is a violation,
+            # regardless of whether pages agree with it. Negated
+            # mentions ("无 ¥2500 档", "no 2500元 tier") are exempt:
+            # they state that the price does not exist.
+            for m in PRICE_RE.finditer(text):
+                if is_negated(text, m.start()):
+                    continue
+                n = (m.group(1) or m.group(2)).replace(",", "")
+                forbidden.append((f"price ¥{n} in AI-facing file",
+                                  f"{rel} {tag}"))
+            # A price list in these files is often bare numbers under a
+            # 价格/price heading, with no currency marker at all. On a
+            # line that is clearly about prices, 3–5 digit bare numbers
+            # are prices too (same negation exemption).
+            for line in text.splitlines():
+                if PRICE_CONTEXT_RE.search(line):
+                    marked = set(price_amounts(line))
+                    for m in re.finditer(r"(?<![\d.])(\d{3,5})(?!\d)(?!\.\d)",
+                                         line):
+                        if m.group(1) in marked:
+                            continue
+                        if is_negated(line, m.start()):
+                            continue
+                        forbidden.append(
+                            (f"price ¥{m.group(1)} in AI-facing file",
+                             f"{rel} {tag}"))
+        elif path.suffix.lower() == ".json" and "ai" in path.parts:
+            try:
+                data = json.loads(path.read_text(encoding="utf-8", errors="ignore"))
+            except json.JSONDecodeError:
+                forbidden.append(("invalid JSON", rel))
+                continue
+            # Consistency facts come from the file's root object only:
+            # it describes the business. Nested entries are catalog items
+            # (services, FAQs) whose names are not the business's name.
+            if isinstance(data, dict):
+                for key in ("name", "telephone", "url", "openingHours"):
+                    v = data.get(key)
+                    if isinstance(v, str):
+                        if key == "telephone":
+                            add_fact(facts, "phone", norm_phone(v),
+                                     f"{rel} (ai json)")
+                        elif key == "name":
+                            add_fact(facts, "name", norm_name(v),
+                                     f"{rel} (ai json)")
+                        else:
+                            add_fact(facts, key, v, f"{rel} (ai json)")
+                addr = data.get("address")
+                if isinstance(addr, str):
+                    add_fact(facts, "address", addr, f"{rel} (ai json)")
+                elif isinstance(addr, dict):
+                    joined = core_address(addr)
+                    if joined:
+                        add_fact(facts, "address", joined, f"{rel} (ai json)")
+            # Deep scan: forbidden prices at any depth, and every phone
+            # copy (nested fields and free-text answers included).
+            scan_ai_json(data, f"{rel} (ai json)", forbidden, facts)
+    # Canonicalize values collected from every surface, so that merely
+    # typographic differences never masquerade as fact conflicts.
+    for field, norm in (("name", norm_name), ("address", norm_address),
+                        ("openingHours", norm_hours)):
+        if field in facts:
+            merged = {}
+            for value, sources in facts[field].items():
+                merged.setdefault(norm(value), []).extend(sources)
+            facts[field] = merged
+    return facts, list(dict.fromkeys(forbidden))
+
+
+def conflicts(facts):
+    return {f: vals for f, vals in facts.items() if len(vals) > 1}
+
+
+def main(argv):
+    try:  # ¥ and CJK output must not crash legacy Windows consoles
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+    args = [a for a in argv[1:] if not a.startswith("--")]
+    as_json = "--json" in argv
+    if len(args) != 1 or not Path(args[0]).is_dir():
+        print(__doc__)
+        return 2
+    facts, forbidden = collect(Path(args[0]))
+    bad = conflicts(facts)
+    if as_json:
+        print(json.dumps({"facts": {f: {v: s for v, s in vals.items()}
+                                    for f, vals in facts.items()},
+                          "conflicts": list(bad),
+                          "forbidden": [{"finding": d, "source": s}
+                                        for d, s in forbidden]},
+                         ensure_ascii=False, indent=2))
+    else:
+        for field in sorted(facts):
+            vals = facts[field]
+            mark = "CONFLICT" if field in bad else "ok"
+            print(f"[{mark}] {field}: {len(vals)} distinct value(s)")
+            for value, sources in sorted(vals.items()):
+                uniq = sorted(set(sources))
+                shown = ", ".join(uniq[:4])
+                if len(uniq) > 4:
+                    shown += f" (+{len(uniq) - 4} more)"
+                print(f"    - {value!r}  <- {shown}")
+        for desc, source in forbidden:
+            print(f"[FORBIDDEN] {desc}  <- {source}")
+        print(f"\n{len(bad)} conflicted field(s), {len(forbidden)} forbidden "
+              f"finding(s), {len(facts)} field(s) checked.")
+    return 1 if (bad or forbidden) else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))

@@ -1,1 +1,145 @@
-aW1wb3J0IHN5cwpmcm9tIHBhdGhsaWIgaW1wb3J0IFBhdGgKCnN5cy5wYXRoLmluc2VydCgwLCBzdHIoUGF0aChfX2ZpbGVfXykucmVzb2x2ZSgpLnBhcmVudC5wYXJlbnQpKQpmcm9tIGZhY3RfY2hlY2sgaW1wb3J0IGNvbGxlY3QsIGNvbmZsaWN0cyAgIyBub3FhOiBFNDAyCgpGSVhUVVJFID0gUGF0aChfX2ZpbGVfXykucmVzb2x2ZSgpLnBhcmVudCAvICJmaXh0dXJlcyIgLyAic2l0ZSIKSEVSRSA9IFBhdGgoX19maWxlX18pLnJlc29sdmUoKS5wYXJlbnQKCgpkZWYgdGVzdF9maW5kc19waG9uZV9jb25mbGljdF9iZXR3ZWVuX2pzb25sZF9hbmRfdGV4dCgpOgogICAgZmFjdHMsIF8gPSBjb2xsZWN0KEZJWFRVUkUpCiAgICBhc3NlcnQgc2V0KGZhY3RzWyJwaG9uZSJdKSA9PSB7IjEzODAwMDAxMTExIiwgIjEzOTAwMDAyMjIyIn0KICAgIGFzc2VydCAicGhvbmUiIGluIGNvbmZsaWN0cyhmYWN0cykKCgpkZWYgdGVzdF9maW5kc19wcmljZV9jb25mbGljdCgpOgogICAgZmFjdHMsIF8gPSBjb2xsZWN0KEZJWFRVUkUpCiAgICBhc3NlcnQgc2V0KGZhY3RzWyJwcmljZSJdKSA9PSB7IjEzMDAiLCAiMTUwMCJ9CiAgICBhc3NlcnQgInByaWNlIiBpbiBjb25mbGljdHMoZmFjdHMpCgoKZGVmIHRlc3RfY29uc2lzdGVudF9uYW1lX2lzX25vdF9hX2NvbmZsaWN0KCk6CiAgICBmYWN0cywgXyA9IGNvbGxlY3QoRklYVFVSRSkKICAgIGFzc2VydCAibmFtZSIgbm90IGluIGNvbmZsaWN0cyhmYWN0cykKCgpkZWYgdGVzdF9wcmljZV9pbl9sbG1zX3R4dF9pc19mb3JiaWRkZW5fbm90X2FfZmFjdCgpOgogICAgZmFjdHMsIGZvcmJpZGRlbiA9IGNvbGxlY3QoRklYVFVSRSkKICAgIGFzc2VydCBhbnkoIkFJLWZhY2luZyIgaW4gZCBmb3IgZCwgXyBpbiBmb3JiaWRkZW4pCiAgICAjIHRoZSBsbG1zLnR4dCBhbW91bnQgbXVzdCBub3Qgam9pbiB0aGUgcGFnZS1wcmljZSBjb25zaXN0ZW5jeSBwb29sCiAgICBhc3NlcnQgc2V0KGZhY3RzWyJwcmljZSJdKSA9PSB7IjEzMDAiLCAiMTUwMCJ9CgoKZGVmIHRlc3RfYWlfanNvbl9wcmljZXNfaW5fYW55X3NoYXBlX2FyZV9mb3JiaWRkZW4oKToKICAgICMgUmVncmVzc2lvbiAoZXh0ZXJuYWwgYWNjZXB0YW5jZSBGMSk6IHByaWNlIGtleSwgbmVzdGVkIG9mZmVycy5wcmljZQogICAgIyBhbmQgYSBjdXJyZW5jeSBhbW91bnQgaW4gZnJlZSB0ZXh0IG11c3QgYWxsIGJlIGNhdWdodC4KICAgIF8sIGZvcmJpZGRlbiA9IGNvbGxlY3QoSEVSRSAvICJmaXh0dXJlcyIgLyAiYWktcHJpY2VzIikKICAgIGFzc2VydCBsZW4oZm9yYmlkZGVuKSA+PSAzLCBmb3JiaWRkZW4KCgpkZWYgdGVzdF9vdGhlcl9lbnRpdGllc19uYW1lc19hbmRfdXJsc19hcmVfbm90X2J1c2luZXNzX2ZhY3RzKCk6CiAgICAjIFJlZ3Jlc3Npb24gKGV4dGVybmFsIGFjY2VwdGFuY2UgRjIvRjMpOiBGQVEgcXVlc3Rpb25zLCBhcnRpY2xlCiAgICAjIG5hbWVzIGFuZCBwZXItcGFnZSBVUkxzIG11c3Qgbm90IG1lcmdlIGludG8gdGhlIGJ1c2luZXNzJ3MgZmFjdHMuCiAgICBmYWN0cywgXyA9IGNvbGxlY3QoSEVSRSAvICJmaXh0dXJlcyIgLyAiZW50aXRpZXMiKQogICAgYXNzZXJ0IHNldChmYWN0c1sibmFtZSJdKSA9PSB7IkV4YW1wbGUgU3R1ZGlvIn0KICAgIGFzc2VydCAibmFtZSIgbm90IGluIGNvbmZsaWN0cyhmYWN0cykKICAgIGFzc2VydCAidXJsIiBub3QgaW4gY29uZmxpY3RzKGZhY3RzKQoKCmRlZiB0ZXN0X3NhbWVfZW50aXR5X25hbWVfZHJpZnRfaXNfc3RpbGxfY2F1Z2h0KCk6CiAgICBmYWN0cywgXyA9IGNvbGxlY3QoSEVSRSAvICJmaXh0dXJlcyIgLyAiZW50aXRpZXMtZHJpZnQiKQogICAgYXNzZXJ0ICJuYW1lIiBpbiBjb25mbGljdHMoZmFjdHMpCgoKZGVmIHRlc3RfeXVhbl9zdWZmaXhfYW5kX3dlbGxrbm93bl9haV90eHRfYXJlX2ZvcmJpZGRlbigpOgogICAgXywgZm9yYmlkZGVuID0gY29sbGVjdChGSVhUVVJFKQogICAgZGVzY3MgPSBbZCBmb3IgZCwgXyBpbiBmb3JiaWRkZW5dCiAgICBhc3NlcnQgYW55KCIxMzAwIiBpbiBkIGZvciBkIGluIGRlc2NzKSAgIyAxMzAw5YWDIGluIGxsbXMudHh0CiAgICBhc3NlcnQgYW55KCI5OTkiIGluIGQgZm9yIGQgaW4gZGVzY3MpICAgIyA5OTnlhYMgaW4gLndlbGwta25vd24vYWkudHh0CgoKZGVmIHRlc3RfaW52YWxpZF9qc29ubGRfaXNfcmVwb3J0ZWRfbm90X3NraXBwZWQoKToKICAgIF8sIGZvcmJpZGRlbiA9IGNvbGxlY3QoRklYVFVSRSkKICAgIGFzc2VydCBhbnkoImludmFsaWQgSlNPTi1MRCIgaW4gZCBmb3IgZCwgXyBpbiBmb3JiaWRkZW4pCgoKZGVmIHRlc3RfYmFyZV9udW1iZXJfcHJpY2VfbGlzdF9pbl9haV90eHRfaXNfZm9yYmlkZGVuKCk6CiAgICBfLCBmb3JiaWRkZW4gPSBjb2xsZWN0KEZJWFRVUkUpCiAgICBkZXNjcyA9IFtkIGZvciBkLCBzIGluIGZvcmJpZGRlbiBpZiAiYWkudHh0IiBpbiBzXQogICAgYXNzZXJ0IGFueSgiMTMwMCIgaW4gZCBmb3IgZCBpbiBkZXNjcykgICMgYmFyZSBudW1iZXIgdW5kZXIg5Lu35qC877yaCiAgICBhc3NlcnQgYW55KCIyMzAwIiBpbiBkIGZvciBkIGluIGRlc2NzKQogICAgYXNzZXJ0IGFueSgiMzgwMCIgaW4gZCBmb3IgZCBpbiBkZXNjcykKCgpkZWYgdGVzdF9uZWdhdGVkX3ByaWNlX2lzX25vdF9hX3ByaWNlKCk6CiAgICBfLCBmb3JiaWRkZW4gPSBjb2xsZWN0KEZJWFRVUkUpCiAgICBhc3NlcnQgbm90IGFueSgiMjUwMCIgaW4gZCBmb3IgZCwgXyBpbiBmb3JiaWRkZW4pICAjIO+8iOaXoCAyNTAwIOaho++8iQoKCmRlZiB0ZXN0X25lZ2F0aW9uX2NvdmVyc19tYXJrZWRfYW1vdW50c19hbmRfZnVsbF93b3JkbGlzdCgpOgogICAgXywgZm9yYmlkZGVuID0gY29sbGVjdChIRVJFIC8gImZpeHR1cmVzIiAvICJuZWdhdGlvbiIpCiAgICAjIOaXoCDCpTI1MDAgKG1hcmtlZCksIG5vIDI1MDDlhYMgKG1hcmtlZCksIOS4jeiuviAyNTAwIChiYXJlKTogYWxsIGV4ZW1wdAogICAgYXNzZXJ0IG5vdCBhbnkoIjI1MDAiIGluIGQgZm9yIGQsIF8gaW4gZm9yYmlkZGVuKQoKCmRlZiB0ZXN0X25lYXJieV91bnJlbGF0ZWRfbmVnYXRpb25fZG9lc19ub3Rfc3VwcHJlc3NfYV9yZWFsX3ByaWNlKCk6CiAgICAjIEEgbmVnYXRpb24gdGhhdCBnb3Zlcm5zIHNvbWV0aGluZyBlbHNlIGluIHRoZSBzYW1lIHNlbnRlbmNlIOKAlAogICAgIyAnbm8gZmVlJywgJ+aXoOmihOe6pui0uScg4oCUIG11c3Qgbm90IGV4ZW1wdCB0aGUgcHJpY2UgYWZ0ZXIgaXQ7IG9ubHkgYQogICAgIyBuZWdhdGlvbiBpbW1lZGlhdGVseSBhZGphY2VudCB0byB0aGUgYW1vdW50IGRvZXMuCiAgICByb290ID0gYnVpbGRfc2l0ZSh7CiAgICAgICAgImxsbXMudHh0IjogInByaWNlOiBubyBmZWUsIDEzMDBcbnByaWNlOiBubyBmZWUsIMKlMTMwMFxuIgogICAgICAgICAgICAgICAgICAgICLku7fmoLzvvJrml6DpooTnuqbotLnvvIwxMzAw5YWDXG4iLAogICAgfSkKICAgIGZvcmJpZGRlbnMgPSBzY2FuX2ZvcmJpZGRlbihyb290KQogICAgYXNzZXJ0ICgxMzAwLjAsICJsbG1zLnR4dCIpIGluIGZvcmJpZGRlbnMKCgpkZWYgdGVzdF9kaXN0YW50X25lZ2F0aW9uX2RvZXNfbm90X3N1cHByZXNzX2FfcmVhbF9wcmljZSgpOgogICAgXywgZm9yYmlkZGVuID0gY29sbGVjdChIRVJFIC8gImZpeHR1cmVzIiAvICJuZWdhdGlvbiIpCiAgICAjICJubyBhcHBvaW50bWVudCBuZWVkZWQsIHNpZ25hdHVyZSBzZXJ2aWNlIDEzMDAiOiB0aGUgIm5vIiBpcyBub3QKICAgICMgYWRqYWNlbnQgdG8gMTMwMCwgc28gdGhlIHJlYWwgcHJpY2UgaXMgc3RpbGwgcmVwb3J0ZWQuCiAgICBhc3NlcnQgYW55KCIxMzAwIiBpbiBkIGZvciBkLCBfIGluIGZvcmJpZGRlbikKICAgIGFzc2VydCBsZW4oZm9yYmlkZGVuKSA9PSAxCgoKZGVmIHRlc3RfYWRkcmVzc19zcGVsbGluZ3Nfb2Zfc2FtZV9hZGRyZXNzX2RvX25vdF9jb25mbGljdCgpOgogICAgZmFjdHMsIF8gPSBjb2xsZWN0KEhFUkUgLyAiZml4dHVyZXMiIC8gImFkZHJlc3MtdmFyaWFudHMiKQogICAgYXNzZXJ0ICJhZGRyZXNzIiBub3QgaW4gY29uZmxpY3RzKGZhY3RzKQoKCmRlZiB0ZXN0X3JlYWxfYWRkcmVzc19kcmlmdF9pc19zdGlsbF9jYXVnaHQoKToKICAgIGZhY3RzLCBfID0gY29sbGVjdChIRVJFIC8gImZpeHR1cmVzIiAvICJhZGRyZXNzLWRyaWZ0IikKICAgIGFzc2VydCAiYWRkcmVzcyIgaW4gY29uZmxpY3RzKGZhY3RzKQoKCmRlZiB0ZXN0X25lc3RlZF9hbmRfZnJlZXRleHRfcGhvbmVzX2FyZV9wb29sZWQoKToKICAgIGZhY3RzLCBfID0gY29sbGVjdChIRVJFIC8gImZpeHR1cmVzIiAvICJhaS1waG9uZXMiKQogICAgYXNzZXJ0IGxlbihmYWN0c1sicGhvbmUiXSkgPT0gMSAgIyBib29raW5nLnRlbGVwaG9uZSArIEZBUSBhbnN3ZXIKCgpkZWYgdGVzdF9uZXN0ZWRfcGhvbmVfZHJpZnRfaXNfY2F1Z2h0KCk6CiAgICBmYWN0cywgXyA9IGNvbGxlY3QoSEVSRSAvICJmaXh0dXJlcyIgLyAiYWktcGhvbmVzLWRyaWZ0IikKICAgIGFzc2VydCAicGhvbmUiIGluIGNvbmZsaWN0cyhmYWN0cykKCgppZiBfX25hbWVfXyA9PSAiX19tYWluX18iOgogICAgdGVzdF9maW5kc19waG9uZV9jb25mbGljdF9iZXR3ZWVuX2pzb25sZF9hbmRfdGV4dCgpCiAgICB0ZXN0X2ZpbmRzX3ByaWNlX2NvbmZsaWN0KCkKICAgIHRlc3RfY29uc2lzdGVudF9uYW1lX2lzX25vdF9hX2NvbmZsaWN0KCkKICAgIHRlc3RfcHJpY2VfaW5fbGxtc190eHRfaXNfZm9yYmlkZGVuX25vdF9hX2ZhY3QoKQogICAgdGVzdF9haV9qc29uX3ByaWNlc19pbl9hbnlfc2hhcGVfYXJlX2ZvcmJpZGRlbigpCiAgICB0ZXN0X290aGVyX2VudGl0aWVzX25hbWVzX2FuZF91cmxzX2FyZV9ub3RfYnVzaW5lc3NfZmFjdHMoKQogICAgdGVzdF9zYW1lX2VudGl0eV9uYW1lX2RyaWZ0X2lzX3N0aWxsX2NhdWdodCgpCiAgICB0ZXN0X3l1YW5fc3VmZml4X2FuZF93ZWxsa25vd25fYWlfdHh0X2FyZV9mb3JiaWRkZW4oKQogICAgdGVzdF9pbnZhbGlkX2pzb25sZF9pc19yZXBvcnRlZF9ub3Rfc2tpcHBlZCgpCiAgICB0ZXN0X2JhcmVfbnVtYmVyX3ByaWNlX2xpc3RfaW5fYWlfdHh0X2lzX2ZvcmJpZGRlbigpCiAgICB0ZXN0X25lZ2F0ZWRfcHJpY2VfaXNfbm90X2FfcHJpY2UoKQogICAgdGVzdF9uZWdhdGlvbl9jb3ZlcnNfbWFya2VkX2Ftb3VudHNfYW5kX2Z1bGxfd29yZGxpc3QoKQogICAgdGVzdF9kaXN0YW50X25lZ2F0aW9uX2RvZXNfbm90X3N1cHByZXNzX2FfcmVhbF9wcmljZSgpCiAgICB0ZXN0X2FkZHJlc3Nfc3BlbGxpbmdzX29mX3NhbWVfYWRkcmVzc19kb19ub3RfY29uZmxpY3QoKQogICAgdGVzdF9yZWFsX2FkZHJlc3NfZHJpZnRfaXNfc3RpbGxfY2F1Z2h0KCkKICAgIHRlc3RfbmVzdGVkX2FuZF9mcmVldGV4dF9waG9uZXNfYXJlX3Bvb2xlZCgpCiAgICB0ZXN0X25lc3RlZF9waG9uZV9kcmlmdF9pc19jYXVnaHQoKQogICAgcHJpbnQoImFsbCB0ZXN0cyBwYXNzZWQiKQo=
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from fact_check import collect, conflicts  # noqa: E402
+
+FIXTURE = Path(__file__).resolve().parent / "fixtures" / "site"
+HERE = Path(__file__).resolve().parent
+
+
+def test_finds_phone_conflict_between_jsonld_and_text():
+    facts, _ = collect(FIXTURE)
+    assert set(facts["phone"]) == {"13800001111", "13900002222"}
+    assert "phone" in conflicts(facts)
+
+
+def test_finds_price_conflict():
+    facts, _ = collect(FIXTURE)
+    assert set(facts["price"]) == {"1300", "1500"}
+    assert "price" in conflicts(facts)
+
+
+def test_consistent_name_is_not_a_conflict():
+    facts, _ = collect(FIXTURE)
+    assert "name" not in conflicts(facts)
+
+
+def test_price_in_llms_txt_is_forbidden_not_a_fact():
+    facts, forbidden = collect(FIXTURE)
+    assert any("AI-facing" in d for d, _ in forbidden)
+    # the llms.txt amount must not join the page-price consistency pool
+    assert set(facts["price"]) == {"1300", "1500"}
+
+
+def test_ai_json_prices_in_any_shape_are_forbidden():
+    # Regression (external acceptance F1): price key, nested offers.price
+    # and a currency amount in free text must all be caught.
+    _, forbidden = collect(HERE / "fixtures" / "ai-prices")
+    assert len(forbidden) >= 3, forbidden
+
+
+def test_other_entities_names_and_urls_are_not_business_facts():
+    # Regression (external acceptance F2/F3): FAQ questions, article
+    # names and per-page URLs must not merge into the business's facts.
+    facts, _ = collect(HERE / "fixtures" / "entities")
+    assert set(facts["name"]) == {"Example Studio"}
+    assert "name" not in conflicts(facts)
+    assert "url" not in conflicts(facts)
+
+
+def test_same_entity_name_drift_is_still_caught():
+    facts, _ = collect(HERE / "fixtures" / "entities-drift")
+    assert "name" in conflicts(facts)
+
+
+def test_yuan_suffix_and_wellknown_ai_txt_are_forbidden():
+    _, forbidden = collect(FIXTURE)
+    descs = [d for d, _ in forbidden]
+    assert any("1300" in d for d in descs)  # 1300元 in llms.txt
+    assert any("999" in d for d in descs)   # 999元 in .well-known/ai.txt
+
+
+def test_invalid_jsonld_is_reported_not_skipped():
+    _, forbidden = collect(FIXTURE)
+    assert any("invalid JSON-LD" in d for d, _ in forbidden)
+
+
+def test_bare_number_price_list_in_ai_txt_is_forbidden():
+    _, forbidden = collect(FIXTURE)
+    descs = [d for d, s in forbidden if "ai.txt" in s]
+    assert any("1300" in d for d in descs)  # bare number under 价格：
+    assert any("2300" in d for d in descs)
+    assert any("3800" in d for d in descs)
+
+
+def test_negated_price_is_not_a_price():
+    _, forbidden = collect(FIXTURE)
+    assert not any("2500" in d for d, _ in forbidden)  # （无 2500 档）
+
+
+def test_negation_covers_marked_amounts_and_full_wordlist():
+    _, forbidden = collect(HERE / "fixtures" / "negation")
+    # 无 ¥2500 (marked), no 2500元 (marked), 不设 2500 (bare): all exempt
+    assert not any("2500" in d for d, _ in forbidden)
+
+
+def test_nearby_unrelated_negation_does_not_suppress_a_real_price():
+    # A negation that governs something else in the same sentence —
+    # 'no fee', '无预约费' — must not exempt the price after it; only a
+    # negation immediately adjacent to the amount does.
+    root = build_site({
+        "llms.txt": "price: no fee, 1300\nprice: no fee, ¥1300\n"
+                    "价格：无预约费，1300元\n",
+    })
+    forbiddens = scan_forbidden(root)
+    assert (1300.0, "llms.txt") in forbiddens
+
+
+def test_distant_negation_does_not_suppress_a_real_price():
+    _, forbidden = collect(HERE / "fixtures" / "negation")
+    # "no appointment needed, signature service 1300": the "no" is not
+    # adjacent to 1300, so the real price is still reported.
+    assert any("1300" in d for d, _ in forbidden)
+    assert len(forbidden) == 1
+
+
+def test_address_spellings_of_same_address_do_not_conflict():
+    facts, _ = collect(HERE / "fixtures" / "address-variants")
+    assert "address" not in conflicts(facts)
+
+
+def test_real_address_drift_is_still_caught():
+    facts, _ = collect(HERE / "fixtures" / "address-drift")
+    assert "address" in conflicts(facts)
+
+
+def test_nested_and_freetext_phones_are_pooled():
+    facts, _ = collect(HERE / "fixtures" / "ai-phones")
+    assert len(facts["phone"]) == 1  # booking.telephone + FAQ answer
+
+
+def test_nested_phone_drift_is_caught():
+    facts, _ = collect(HERE / "fixtures" / "ai-phones-drift")
+    assert "phone" in conflicts(facts)
+
+
+if __name__ == "__main__":
+    test_finds_phone_conflict_between_jsonld_and_text()
+    test_finds_price_conflict()
+    test_consistent_name_is_not_a_conflict()
+    test_price_in_llms_txt_is_forbidden_not_a_fact()
+    test_ai_json_prices_in_any_shape_are_forbidden()
+    test_other_entities_names_and_urls_are_not_business_facts()
+    test_same_entity_name_drift_is_still_caught()
+    test_yuan_suffix_and_wellknown_ai_txt_are_forbidden()
+    test_invalid_jsonld_is_reported_not_skipped()
+    test_bare_number_price_list_in_ai_txt_is_forbidden()
+    test_negated_price_is_not_a_price()
+    test_negation_covers_marked_amounts_and_full_wordlist()
+    test_distant_negation_does_not_suppress_a_real_price()
+    test_address_spellings_of_same_address_do_not_conflict()
+    test_real_address_drift_is_still_caught()
+    test_nested_and_freetext_phones_are_pooled()
+    test_nested_phone_drift_is_caught()
+    print("all tests passed")

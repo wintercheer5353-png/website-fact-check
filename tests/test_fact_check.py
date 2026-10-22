@@ -87,13 +87,13 @@ def test_negation_covers_marked_amounts_and_full_wordlist():
 def test_nearby_unrelated_negation_does_not_suppress_a_real_price():
     # A negation that governs something else in the same sentence —
     # 'no fee', '无预约费' — must not exempt the price after it; only a
-    # negation immediately adjacent to the amount does.
-    root = build_site({
-        "llms.txt": "price: no fee, 1300\nprice: no fee, ¥1300\n"
-                    "价格：无预约费，1300元\n",
-    })
-    forbiddens = scan_forbidden(root)
-    assert (1300.0, "llms.txt") in forbiddens
+    # negation immediately adjacent to the amount does. The fixture
+    # holds three probe lines (bare, marked, 元-suffixed); findings are
+    # deduplicated per (amount, file), so they surface as one ¥1300
+    # finding — the pre-fix behaviour returned none at all.
+    _, forbidden = collect(HERE / "fixtures" / "negation-nearby")
+    assert len(forbidden) == 1, forbidden
+    assert "1300" in forbidden[0][0]
 
 
 def test_distant_negation_does_not_suppress_a_real_price():
@@ -137,6 +137,7 @@ if __name__ == "__main__":
     test_bare_number_price_list_in_ai_txt_is_forbidden()
     test_negated_price_is_not_a_price()
     test_negation_covers_marked_amounts_and_full_wordlist()
+    test_nearby_unrelated_negation_does_not_suppress_a_real_price()
     test_distant_negation_does_not_suppress_a_real_price()
     test_address_spellings_of_same_address_do_not_conflict()
     test_real_address_drift_is_still_caught()
